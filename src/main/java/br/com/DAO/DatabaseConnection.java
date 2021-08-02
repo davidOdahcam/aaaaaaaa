@@ -15,7 +15,7 @@ public class DatabaseConnection {
         // Database name to access
         String dbName = "web2";
         String dbUsername = "root";
-        String dbPassword = "";
+        String dbPassword = "root";
   
         Class.forName(dbDriver);
         Connection con = DriverManager.getConnection(dbURL + dbName, dbUsername, dbPassword);
