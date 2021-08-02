@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./public/assets/css/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/css/style.css">
     
     <title>${param.title}</title>
 </head>
@@ -17,7 +17,7 @@
 		<header class="header">
 		    <div class="container">
 		        <div class="header-content">
-		            <a href="/"><img src="./public/assets/images/ufrrj-white.svg" alt="Logotipo da UFRRJ" class="logo"/></a>
+		            <a href="<%= request.getContextPath() %>/"><img src="./public/assets/images/ufrrj-white.svg" alt="Logotipo da UFRRJ" class="logo"/></a>
 		        </div>
 		    </div>
 		</header>

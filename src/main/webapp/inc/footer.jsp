@@ -31,10 +31,10 @@
         </footer>
     </div>
     
-	<script src="./public/assets/js/jquery.js"></script>
-	<script src="./public/assets/js/popper.js"></script>
-	<script src="./public/assets/js/bootstrap.js"></script>
-	<script src="./public/assets/js/script.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/jquery.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/popper.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
 </body>
 
 </html>
