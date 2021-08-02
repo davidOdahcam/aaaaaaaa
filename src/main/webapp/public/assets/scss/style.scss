@@ -1,0 +1,82 @@
+// sass --watch scss/style.scss:css/style.css
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap');
+@import './variables';
+@import '../bootstrap/scss/bootstrap.scss';
+@import './mixins';
+@import './header';
+@import './footer';
+@import './menu';
+@import './form';
+
+body {
+    font-family: 'Nunito';
+    min-height: 100vh;
+    color: #1a202c;
+    background-color: #e2e8f0;
+}
+
+.page-wrapper {
+    background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
+}
+
+.main {
+    margin-bottom: 4rem;
+}
+
+.content {
+    width: 100%;
+    padding: 2rem;
+    border-radius: $border-radius;
+    box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+    background-color: $white;
+    .content-header {
+        position: relative;
+        margin-bottom: 2rem;
+        .content-header-title {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            color: $color-3;
+            @include line-after;
+        }
+    }
+}
+
+.btn-clear {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include media-breakpoint-down(md) {
+        position: static;
+    }
+}
+
+.container-title {
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $color-3;
+}
+
+.card-register {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+    text-decoration: none;
+    img {
+        max-width: 200px;
+        margin-bottom: 2rem;
+    }
+    .title {
+        font: {
+            size: 1.75rem;
+            weight: 700;
+        }
+        text-transform: uppercase;
+        color: $color-4;
+    }
+    &:hover {
+        text-decoration: none;
+    }
+}

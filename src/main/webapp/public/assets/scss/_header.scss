@@ -1,0 +1,22 @@
+.header {
+    margin-bottom: 4rem;
+    padding: 1rem 0;
+    box-shadow: 0 5px 10px rgba($color: #000000, $alpha: 0.1);
+    height: 100px;
+    background-image: linear-gradient(-20deg, $color-1 0%, $color-3 100%);
+    border-bottom: 4px solid $white;
+    .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+            width: 50%;
+            @include media-breakpoint-down(md) {
+                width: 50%;
+            }
+            @include media-breakpoint-down(sm) {
+                width: 80%;
+            }
+        }
+    }
+}
