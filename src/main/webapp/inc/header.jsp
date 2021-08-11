@@ -19,6 +19,7 @@
 		    <div class="container">
 		        <div class="header-content">
 		            <a href="<%= request.getContextPath() %>/"><img src="./public/assets/images/ufrrj-white.svg" alt="Logotipo da UFRRJ" class="logo"/></a>
+                    <a href="" class="ml-auto text-white mt-3">Logout</a>
 		        </div>
 		    </div>
 		</header>

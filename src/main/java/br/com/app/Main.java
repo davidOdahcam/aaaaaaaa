@@ -6,11 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 import br.com.DAO.DatabaseConnection;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 
 // Servlet Name
 @WebServlet("/InsertData")

@@ -36,6 +36,7 @@
 	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/avatar.js"></script>
+    <script src="<%= request.getContextPath() %>/public/assets/js/consulta.js"></script>
 </body>
 
 </html>

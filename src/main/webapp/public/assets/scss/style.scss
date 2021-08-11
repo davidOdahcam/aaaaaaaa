@@ -86,3 +86,16 @@ body {
     max-height:300px; 
     overflow-y: scroll;
 }
+
+.img-container {
+    height: 500px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+#btn-back {
+    display: none;
+}
+#btn-submit{
+    display: none;
+}
