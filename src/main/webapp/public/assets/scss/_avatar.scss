@@ -10,5 +10,20 @@
         position: absolute;
         top: 0;
         left: 0;
+        &.skin {
+            z-index: 1;
+        }
+        &.shadow {
+            z-index: 2;
+        }
+        &.eye {
+            z-index: 3;
+        }
+        &.mouth {
+            z-index: 3;
+        }
+        &.hair {
+            z-index: 4;
+        }
     }
 }

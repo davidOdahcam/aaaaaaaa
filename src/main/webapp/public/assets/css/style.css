@@ -10679,6 +10679,21 @@ h3 {
   top: 0;
   left: 0;
 }
+#avatar img.skin, #avatar object.skin {
+  z-index: 1;
+}
+#avatar img.shadow, #avatar object.shadow {
+  z-index: 2;
+}
+#avatar img.eye, #avatar object.eye {
+  z-index: 3;
+}
+#avatar img.mouth, #avatar object.mouth {
+  z-index: 3;
+}
+#avatar img.hair, #avatar object.hair {
+  z-index: 4;
+}
 
 body {
   font-family: "Nunito";

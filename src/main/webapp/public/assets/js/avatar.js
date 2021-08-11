@@ -1,9 +1,10 @@
 class Avatar {
-    constructor(skin, shadow, hair, eye, clothes) {
+    constructor(skin, shadow, hair, eye, mouth, clothes) {
         this.skin = skin;
         this.shadow = shadow;
         this.hair = hair;
         this.eye = eye;
+        this.mouth = mouth;
         this.clothes = clothes;
     }
 
@@ -27,10 +28,15 @@ class Avatar {
         this.eye.color = color;
         const eye_object = document.querySelector('#avatar #eye-object');
         const eyes = eye_object.contentDocument.querySelectorAll('.eyeSVG');
-
         eyes.forEach(eye => {
-            eye.style.setProperty('fill', color, 'important')
+            console.log(eye);
+            eye.style.setProperty('fill', color, 'important');
         });
+    }
+
+    setMouth(code) {
+        this.mouth = code;
+        this.loadImage();
     }
 
     loadImage() {
@@ -40,13 +46,16 @@ class Avatar {
         hairEl.data = `/TrabalhoWeb2/public/assets/avatar/hair-${this.hair.type}.svg`;
         hairEl.addEventListener('load', () => {
             this.setHairColor(this.hair.color);
-        })
+        });
 
         const eyeEl = document.querySelector('#avatar .eye');
         eyeEl.data = `/TrabalhoWeb2/public/assets/avatar/eye-${this.eye.type}.svg`;
         eyeEl.addEventListener('load', () => {
-            this.seteyeColor(this.eye.color);
+            this.setEyeColor(this.eye.color);
         });
+
+        const mouthEl = document.querySelector('#avatar .mouth');
+        mouthEl.data = `/TrabalhoWeb2/public/assets/avatar/mouth-${this.mouth}.svg`;
     }
 }
 
@@ -61,8 +70,9 @@ window.onload = function(e) {
         },
         eye = {
             type: 1,
-            color: '#FFCC99'
+            color: '#663333'
         },
+        mouth = 1,
         clothes = {
             type: '',
             color: '#FFCC99'
@@ -85,6 +95,10 @@ window.onload = function(e) {
     
     document.getElementById('eye_color').onchange = function () {
         avatar.setEyeColor(this.value);
+    }
+
+    document.getElementById('mouth').onchange = function () {
+        avatar.setMouth(this.value);
     }
     
     const capture = document.getElementById('download');
