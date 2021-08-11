@@ -8,6 +8,7 @@
 @import './footer';
 @import './menu';
 @import './form';
+@import './avatar';
 
 body {
     font-family: 'Nunito';
@@ -79,4 +80,9 @@ body {
     &:hover {
         text-decoration: none;
     }
+}
+
+.container-consultations{
+    max-height:300px; 
+    overflow-y: scroll;
 }

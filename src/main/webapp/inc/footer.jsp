@@ -35,6 +35,7 @@
 	<script src="<%= request.getContextPath() %>/public/assets/js/popper.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/avatar.js"></script>
 </body>
 
 </html>

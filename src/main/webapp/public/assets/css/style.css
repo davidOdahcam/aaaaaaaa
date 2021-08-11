@@ -10665,6 +10665,21 @@ h3 {
   font-weight: 500;
 }
 
+#avatar {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 500px;
+  height: 700px;
+  background-color: #f1f1f1;
+}
+#avatar img, #avatar object {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 body {
   font-family: "Nunito";
   min-height: 100vh;
@@ -10743,6 +10758,11 @@ body {
 }
 .card-register:hover {
   text-decoration: none;
+}
+
+.container-consultations {
+  max-height: 300px;
+  overflow-y: scroll;
 }
 
 /*# sourceMappingURL=style.css.map */
