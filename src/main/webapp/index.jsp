@@ -9,7 +9,7 @@
     <div class="content">
         <form action="./login" method="POST" class="form">
             <header class="content-header">
-                <h2 class="content-header-title">FormulÃ¡rio de login</h2>
+                <h2 class="content-header-title">Formulário de login</h2>
             </header>
             
             <div class="form-group">

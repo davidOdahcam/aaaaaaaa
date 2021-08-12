@@ -7,6 +7,10 @@
 
 <div class="container">
     <div class="content">
+    
+    	<header class="content-header">
+            <h2 class="content-header-title">Criar Avatar</h2>
+        </header>
 
         <div id="avatar">
             <object id="skin-object" data="<%= request.getContextPath() %>/public/assets/avatar/skin.svg" type="image/svg+xml" class="skin w-100"></object>
