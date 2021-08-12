@@ -1,12 +1,15 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <jsp:include page="/inc/header.jsp" >
-  	<jsp:param name="title" value="Cadastrar responsável" />
+  	<jsp:param name="title" value="Cadastrar responsÃ¡vel" />
 </jsp:include>
 
 <div class="container">
     <div class="content">
         <form action="/login" method="POST" class="form">
             <header class="content-header">
-                <h2 class="content-header-title">Cadastro de respons�vel</h2>
+                <h2 class="content-header-title">Cadastro de responsï¿½vel</h2>
             </header>
 
             <div class="form-row">
@@ -51,8 +54,8 @@
                 </div>
                 
                 <div class="form-group col-md-6">
-                    <label for="profession">Profiss�o</label>
-                    <input type="text" name="profession" id="profession" class="form-control" placeholder="Digite sua profiss�o" required />
+                    <label for="profession">Profissï¿½o</label>
+                    <input type="text" name="profession" id="profession" class="form-control" placeholder="Digite sua profissï¿½o" required />
                     <small class="text text-danger"></small>
                 </div>
 
@@ -69,8 +72,8 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="number">N�mero</label>
-                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite o n�mero de sua casa" required />
+                    <label for="number">Nï¿½mero</label>
+                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite o nï¿½mero de sua casa" required />
                     <small class="text text-danger"></small>
                 </div>
 
@@ -97,7 +100,7 @@
             
             <hr>
             
-            <small class="d-block pt-2 text-center">J� possui cadastro? <a href="login.jsp">Entre com uma conta</a></small>
+            <small class="d-block pt-2 text-center">Jï¿½ possui cadastro? <a href="login.jsp">Entre com uma conta</a></small>
         </form>
     </div>
 </div>
