@@ -1,6 +1,7 @@
 package br.com.models;
 
 import java.sql.SQLException;
+import java.util.Map;
 
 import br.com.DAO.Model;
 
@@ -51,6 +52,48 @@ public class User extends Model {
 		try {			
 			this.create(register_user);
 		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+			
+			return false;
+		}
+		
+		return true;
+	}
+	
+	public static User login(Map<String, String> data) {
+		User u;
+		
+		try {
+			u = new User();
+			
+			if(u.where("email", data.get("email")).where("password", data.get("password")).get() != null) {
+				return u;
+			}
+		} catch (ClassNotFoundException | SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	public static boolean register(Map<String, String> data) {		
+		if(User.login(data) != null) { 
+			System.out.println("Usuário já registrado com este email");
+			return false; 
+		}
+		
+		data.put("id", Double.toString(Math.floor(Math.random() * 100))); // TEMPORÁRIO
+		
+		String[] register_user = {
+			"id => " + data.get("id"),
+			"password => " + data.get("password"),
+			"name => " + data.get("name"),
+			"email => " + data.get("email"),
+		};
+		
+		try {		
+			new User().create(register_user);
+		} catch(ClassNotFoundException | SQLException e) {
 			System.out.println(e.getMessage());
 			
 			return false;

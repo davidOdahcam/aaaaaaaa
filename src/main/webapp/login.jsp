@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
 <jsp:include page="./inc/header.jsp" >
   	<jsp:param name="title" value="Login" />
 </jsp:include>
@@ -27,7 +24,7 @@
             
             <hr>
             
-            <small class="d-block pt-2 text-center">NÃ£o possui cadastro? <a href="selecionar-perfil.jsp">Crie uma conta</a></small>
+            <small class="d-block pt-2 text-center">Não possui cadastro? <a href="selecionar-perfil.jsp">Crie uma conta</a></small>
         </form>
     </div>
 </div>

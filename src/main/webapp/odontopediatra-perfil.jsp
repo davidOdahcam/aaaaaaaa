@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
 <jsp:include page="/inc/header.jsp" >
   	<jsp:param name="title" value="Cadastrar odontopediatra" />
 </jsp:include>
@@ -18,7 +15,7 @@
                                 <h4>Victor Martins</h4>
                                 <p class="text-secondary mb-3">Odontologista</p>
                                 <button class="btn btn-primary">Cadastrar Paciente</button>
-                                <button class="btn btn-outline-primary">Gerar RelatÃ³rio</button>
+                                <button class="btn btn-outline-primary">Gerar Relatório</button>
                                 <div class="input-group mt-3">
                                     <input type="text" class="form-control" placeholder="Buscar paciente" />
                                     <div class="input-group-append">
@@ -77,13 +74,13 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">EndereÃ§o</h6>
+                                <h6 class="mb-0">Endereço</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>TeresÃ³polis</span>,
+                                <span>Teresópolis</span>,
                                 <span>Rio de Janeiro</span>,
                                 <span>KM 30, Motas</span>,
-                                <span>NÂº: 125</span>
+                                <span>Nº: 125</span>
                             </div>
                         </div>
                         <div class="row pt-4">

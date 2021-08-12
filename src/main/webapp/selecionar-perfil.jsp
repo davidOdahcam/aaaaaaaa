@@ -1,6 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
 <jsp:include page="/inc/header.jsp" >
   	<jsp:param name="title" value="Selecionar perfil" />
 </jsp:include>
@@ -19,7 +16,7 @@
         <div class="col-md-6">
             <a href="responsavel-cadastrar.jsp" class="card card-register">
                 <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle">
-                <h3 class="title">Respons√°vel</h3>
+                <h3 class="title">Respons·vel</h3>
             </a>
         </div>
     </div>

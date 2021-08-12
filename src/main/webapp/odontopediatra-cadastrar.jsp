@@ -1,17 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-    
 <jsp:include page="/inc/header.jsp" >
   	<jsp:param name="title" value="Cadastrar odontopediatra" />
 </jsp:include>
 
 <div class="container">
     <div class="content">
-        <form action="./createDentist" method="POST" class="form">
+        <form action="./cadastrar" method="POST" id="form" class="form">
             <header class="content-header">
                 <h2 class="content-header-title">Cadastro de odontopediatra</h2>
+				<input type="hidden" name="type" value="odontopediatra" />
             </header>
-
+			
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Nome</label>
@@ -62,8 +60,8 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="number">NÃºmero</label>
-                    <input type="text" name="number" id="number" class="form-control" value="" placeholder="Digite o nÃºmero de sua casa" aria-describedby="small-number" required/>
+                    <label for="number">N�mero</label>
+                    <input type="text" name="number" id="number" class="form-control" value="" placeholder="Digite o número de sua casa" aria-describedby="small-number" required/>
                     <small class="text text-danger"></small>
                 </div>
 
@@ -90,7 +88,7 @@
             
             <hr>
             
-            <small class="d-block pt-2 text-center">Já possui cadastro? <a href="login.jsp">Entre com uma conta</a></small>
+            <small class="d-block pt-2 text-center">J� possui cadastro? <a href="./login">Entre com uma conta</a></small>
         </form>
     </div>
 </div>

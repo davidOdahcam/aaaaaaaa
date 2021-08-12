@@ -35,19 +35,19 @@
 	<script src="<%= request.getContextPath() %>/public/assets/js/popper.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
-
-    <% 
-        String uri = request.getRequestURI();
-        String pageName = uri.substring(uri.lastIndexOf("/")+1);
-
-        if("avatar.jsp".equals(pageName)) {
-	        out.println("<script src=\"" + request.getContextPath() + "/public/assets/js/avatar.js\"></script>");
-        }
-
-        if("consulta.jsp".equals(pageName)) {
-	        out.println("<script src=\"" + request.getContextPath() + "/public/assets/js/consulta.js\"></script>");
-        }
-    %>
+	<script src="<%= request.getContextPath() %>/public/assets/js/avatar.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/toastr.min.js"></script>
+	<script>
+		<% if(request.getSession().getAttribute("info") != null) { %>
+			toastr.info("<%= request.getSession().getAttribute("info") %>");
+		<% } else if(request.getSession().getAttribute("warning") != null) { %>
+			toastr.warning("<%= request.getSession().getAttribute("warning") %>");
+		<%	} else if(request.getSession().getAttribute("error") != null) { %>
+			toastr.error("<%= request.getSession().getAttribute("error") %>");
+		<%	} else if(request.getSession().getAttribute("success") != null) { %>
+			toastr.success("<%= request.getSession().getAttribute("success") %>");
+		<%	} %>
+	</script>
 </body>
 
 </html>
