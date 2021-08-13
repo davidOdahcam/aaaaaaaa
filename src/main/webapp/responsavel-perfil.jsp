@@ -163,6 +163,8 @@
 	                </div>
 	                <div class="modal-body">
 					    <form action="" id="form-edit">
+                            <input type="text" name="id" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("id") %>" hidden>
+                            <input type="text" name="type" value="responsavel" hidden>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Nome</label>
