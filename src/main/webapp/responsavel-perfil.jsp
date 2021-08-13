@@ -11,8 +11,8 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="https://www.bootdey.com/img/Content/avatar/avatar2.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4>Pedro Raposo</h4>
-                                <p class="text-secondary mb-3">Responsável</p>
+                                <h4><%=  ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
+                                <p class="text-secondary mb-3">Respons�vel</p>
                                 <button class="btn btn-primary">Cadastrar Filho(a)</button>
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                                 <h6 class="mb-0">Nome Completo:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>Pedro Raposo Felix de Sousa</span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -35,7 +35,7 @@
                                 <h6 class="mb-0">CPF:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>XXX.XXX.XXX-XX</span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("cpf") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -43,7 +43,7 @@
                                 <h6 class="mb-0">E-mail:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>pedrinhoZika69@hotmail.com</span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("email") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -51,26 +51,27 @@
                                 <h6 class="mb-0">Telefone:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>(21)99999-9999</span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("phone") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profissão:</h6>
+                                <h6 class="mb-0">Profiss�o:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>Alcoólatra</span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("profession") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endereço</h6>
+                                <h6 class="mb-0">Endere�o</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span>Teresópolis</span>,
-                                <span>Rio de Janeiro</span>,
-                                <span>KM 30, Motas</span>,
-                                <span>Nº: 125</span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("street") %></span>,
+                                <span>COMPLEMENTO</span>,
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("number") %></span>
+                                
                             </div>
                         </div>
                         <div class="row pt-4">

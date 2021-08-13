@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +13,7 @@ import java.util.Map;
 public class Model {
 	protected String singular;
 	protected String tableName;
+	protected ArrayList<String> tableColumns;
 	private Connection conn;
 	private String query = "";
 	private PreparedStatement preparedQuery;
@@ -21,6 +23,13 @@ public class Model {
 	public Model(String tableName) throws SQLException, ClassNotFoundException {
 		this.tableName = tableName;
 		this.conn = DatabaseConnection.initializeDatabase();
+		this.tableColumns = new ArrayList<String>();
+		
+		ResultSetMetaData metaData = this.conn.prepareStatement("select * from " + this.tableName).executeQuery().getMetaData();
+		
+		for(int i = 0; i < metaData.getColumnCount(); i++) {
+			this.tableColumns.add(metaData.getColumnName(i + 1));
+		}
 	}
 
 	public Model find(String id) {
@@ -74,8 +83,7 @@ public class Model {
 			} else {
 				this.preparedQuery = this.conn.prepareStatement(this.query.concat(" and " + column + " " + operator + " ?"));
 			}
-			
-//			this.preparedQuery.setString(1, column);		
+					
 			this.preparedQuery.setString(1, value);
 			
 			String newQuery = this.preparedQuery.toString();
@@ -135,7 +143,7 @@ public class Model {
 		return null;
 	}
 	
-	public Model create(String[] inserts) throws SQLException {
+	public Model create(Map<String, String> inserts) throws SQLException {
 		if(!this.query.isEmpty() || this.results != null) {
 			throw new SQLException("Impossível realizar essa opção neste momento.");
 		}
@@ -145,12 +153,14 @@ public class Model {
 		
 		this.query = "insert into " + this.tableName + "(__columns) values(__values)";
 		
-		for(int i = 0; i < inserts.length; i++) {
-			String[] insert = inserts[i].split("=>");
+		for(Map.Entry<String, String> insert: inserts.entrySet()) {			
+			if(!this.tableColumns.contains(insert.getKey().trim())) {
+				continue;
+			}
 			
-			cols.add(insert[0].trim());
+			cols.add(insert.getKey().trim());
 			
-			String notPreparedValue = insert[1].trim();
+			String notPreparedValue = insert.getValue().trim();
 			
 			this.preparedQuery = this.conn.prepareStatement("?");
 			this.preparedQuery.setString(1, notPreparedValue);
@@ -167,6 +177,11 @@ public class Model {
 
 		this.preparedQuery = this.conn.prepareStatement(this.query);
 		this.preparedQuery.execute();
+		
+		String email = inserts.get("email");
+		
+		this.purge();
+		this.where("email", email).get();
 		
 		return this;
 	}

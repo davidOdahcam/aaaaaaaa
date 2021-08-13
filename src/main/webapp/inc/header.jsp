@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/css/style.css">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/css/toastr.min.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/fontawesome/css/all.css">
     
     <title>${param.title}</title>
@@ -19,7 +20,6 @@
 		    <div class="container">
 		        <div class="header-content">
 		            <a href="<%= request.getContextPath() %>/"><img src="./public/assets/images/ufrrj-white.svg" alt="Logotipo da UFRRJ" class="logo"/></a>
-                    <a href="" class="ml-auto text-white mt-3">Logout</a>
 		        </div>
 		    </div>
 		</header>

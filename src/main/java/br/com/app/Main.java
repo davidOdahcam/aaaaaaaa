@@ -4,14 +4,28 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import br.com.DAO.DatabaseConnection;
+import br.com.models.User;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 // Servlet Name
 @WebServlet("/InsertData")
 public class Main extends HttpServlet {
     private static final long serialVersionUID = 1L;
-  
+    
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	System.out.println("Olá");
+    	response.getWriter().print("AAA");
+    }
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
         try {

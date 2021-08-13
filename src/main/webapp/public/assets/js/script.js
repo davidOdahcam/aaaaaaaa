@@ -72,7 +72,7 @@ function checkBirthdate(birthdate) {
 function checkPhone(phone) {
     if (phone == "") return null;
     phone = phone.replace(/[^0-9]/g, '');
-    if (phone.length < 10 || phone.length > 11) return false;
+    if (phone.length < 10 || phone.length > 11) return true;
 
 }
 
@@ -159,15 +159,6 @@ function validate() {                                                           
         error = true;
     } else if (checkBirthdate(birthdate) === true) {
         displayMessage("Data", forms[5], true, "de nascimento válida");
-    }
-    if (checkPhone(phone) === false) {
-        displayMessage("Telefone", forms[6], false, "inválido");
-        error = true;
-    } else if (checkPhone(phone) === null) {
-        displayMessage("Telefone", forms[6], null, "obrigatório");
-        error = true;
-    } else {
-        displayMessage("Telefone", forms[6], true, "válido");
     }
     if (error == true) {                                                //se tudo der certo faz o submit                                          
         return false;
