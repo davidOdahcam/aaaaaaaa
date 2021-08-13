@@ -9,10 +9,10 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://www.bootdey.com/img/Content/avatar/avatar2.png" alt="Admin" class="rounded-circle" width="150">
+                            <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4><%=  ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
-                                <p class="text-secondary mb-3">Responsável</p>
+                                <p class="text-secondary mb-3">Responsï¿½vel</p>
                                 <button class="btn btn-primary">Cadastrar Filho(a)</button>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profissão:</h6>
+                                <h6 class="mb-0">Profissï¿½o:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("profession") %></span>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endereço</h6>
+                                <h6 class="mb-0">Endereï¿½o</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
