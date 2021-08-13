@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="content">
-        <form action="/cadastrar" method="POST" id="form" class="form">
+        <form action="./cadastrar" method="POST" id="form" class="form">
             <header class="content-header">
                 <h2 class="content-header-title">Cadastro de responsável</h2>
                 <input type="hidden" name="type" value="responsavel" />
