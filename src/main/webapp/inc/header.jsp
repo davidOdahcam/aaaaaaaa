@@ -21,7 +21,12 @@
 		    <div class="container">
 		        <div class="header-content">
 		            <a href="<%= request.getContextPath() %>/"><img src="./public/assets/images/ufrrj-white.svg" alt="Logotipo da UFRRJ" class="logo"/></a>
-                    <a href="./logout" class="ml-auto text-white mt-3">Logout</a>
+                    <% if (request.getSession().getAttribute("user_id") != null) { %>
+                        <form action="./logout" method="POST" id="submit-form">
+                            <a onclick="document.getElementById('submit-form').submit();" type="submit" class="ml-auto text-white mt-3">Logout</a>
+                        </form>
+                    <% } %>
+                    
 		        </div>
 		    </div>
 		</header>

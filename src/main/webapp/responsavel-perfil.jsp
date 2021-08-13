@@ -162,43 +162,50 @@
 	                    </button>
 	                </div>
 	                <div class="modal-body">
-					    <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="name">Nome</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
-                                <small class="text-danger"></small>
+					    <form action="" id="form-edit">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="name">Nome</label>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="email">E-mail</label>
+                                    <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu email" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="phone">Telefone</label>
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu Telefone" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="cep">CEP</label>
+                                    <input type="text" name="cep" id="cep" class="form-control" placeholder="Digite seu CEP" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="neighborhood">Bairro</label>
+                                    <input type="text" name="neighborhood" id="neighborhood" class="form-control" placeholder="Digite seu Bairro" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="street">Rua</label>
+                                    <input type="text" name="street" id="street" class="form-control" placeholder="Digite sua Rua" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="complement">Complemento</label>
+                                    <input type="text" name="complement" id="complement" class="form-control" placeholder="Digite seu Complemento" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="number">Número</label>
+                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu Número" required/>
+                                    <small class="text-danger"></small>
+                                </div>
                             </div>
-                            <div class="form-group col-md-12">
-                                <label for="email">E-mail</label>
-                                <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu email" required/>
-                                <small class="text-danger"></small>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="phone">Telefone</label>
-                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu Telefone" required/>
-                                <small class="text-danger"></small>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="neighborhood">Bairro</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
-                                <small class="text-danger"></small>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="street">Rua</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
-                                <small class="text-danger"></small>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="complement">Complemento</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
-                                <small class="text-danger"></small>
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="number">Número</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
-                                <small class="text-danger"></small>
-                            </div>
-                        </div>
+                        </form>
 	                </div>
 	                <div class="modal-footer">
 	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
