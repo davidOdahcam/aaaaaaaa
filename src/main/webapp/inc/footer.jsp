@@ -35,8 +35,22 @@
 	<script src="<%= request.getContextPath() %>/public/assets/js/popper.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
-	<script src="<%= request.getContextPath() %>/public/assets/js/avatar.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/toastr.min.js"></script>
+
+    <% 
+        String uri = request.getRequestURI();
+        String pageName = uri.substring(uri.lastIndexOf("/")+1);
+
+        if("avatar.jsp".equals(pageName)) {
+	        out.println("<script src=\"" + request.getContextPath() + "/public/assets/js/avatar.js\"></script>");
+	        out.println("<script src=\"" + request.getContextPath() + "/public/assets/html2canvas/dist/html2canvas.min.js\"></script>");
+        }
+
+        if("consulta.jsp".equals(pageName)) {
+	        out.println("<script src=\"" + request.getContextPath() + "/public/assets/js/consulta.js\"></script>");
+        }
+    %>
+
 	<script>
 		<% if(request.getSession().getAttribute("info") != null) { %>
 			toastr.info("<%= request.getSession().getAttribute("info") %>");
