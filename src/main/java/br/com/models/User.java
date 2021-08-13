@@ -1,6 +1,7 @@
 package br.com.models;
 
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.Map;
 
 import br.com.DAO.Model;
@@ -42,12 +43,10 @@ public class User extends Model {
 		
 		this.purge(); 
 		
-		String[] register_user = {
-			"id => " + this.id,
-			"password => " + this.password,
-			"name => " + this.name,
-			"email => " + this.email,
-		};
+		Map<String, String> register_user = new HashMap<String, String>();
+		register_user.put("password", this.password);
+		register_user.put("name", this.name);
+		register_user.put("email", this.email);
 		
 		try {			
 			this.create(register_user);
@@ -82,14 +81,13 @@ public class User extends Model {
 			return false; 
 		}
 		
-		data.put("id", Double.toString(Math.floor(Math.random() * 100))); // TEMPORÁRIO
-		
 		String[] register_user = {
-			"id => " + data.get("id"),
 			"password => " + data.get("password"),
 			"name => " + data.get("name"),
 			"email => " + data.get("email"),
 		};
+		
+		//Map<String, String> register_user =  
 		
 		try {		
 			new User().create(register_user);

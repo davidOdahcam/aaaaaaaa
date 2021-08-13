@@ -77,10 +77,7 @@ public class Register extends HttpServlet {
 				addData.put(entry.getKey(), entry.getValue()[0]);
 			}
 			
-			try {
-				Connection conn = DatabaseConnection.initializeDatabase();
-				String query = "";
-				
+			try {			
 				Map<String, String> u = new User().create(addData).toArrayList().get(0);
 				addData.put("user_id", u.get("id"));
 				
