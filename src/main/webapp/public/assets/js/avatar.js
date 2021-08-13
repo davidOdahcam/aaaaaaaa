@@ -122,8 +122,16 @@ class Avatar {
     }
 }
 
+function blobToDataURL(blob, callback) {
+    const a = new FileReader();
+    a.onload = function(e) {callback(e.target.result);}
+    a.readAsDataURL(blob);
+    a.onloadend = (e) => {
+    	console.log(e.target.result);
+    }
+}
 
-window.onload = function (e) {
+window.onload = function (e) {	
     const avatar = new Avatar(
         skin = '#FFCC99',
         shadow = '#E1AD7A',
@@ -214,19 +222,42 @@ submit.addEventListener('click', function () {
 
     html2canvas(avatarEl).then(canvas => {
         canvas.toBlob(function(blob) {
-            var formData = new FormData();
-            formData.append('blob', blob);
+            const formData = new FormData();
+       		
+			const a = new FileReader();
+		    
+		    a.readAsDataURL(blob);
+		    a.onloadend = (e) => {
+		    	//formData.append('blob', e.target.result);
+				//console.log(e.target.result);
+				
+				let length = 0;
+				let dataQuery = ""
+				
+				for(let i = 0; i < e.target.result.length; i += 255) {
+					dataQuery += `blob_${i/255}=${e.target.result.slice(i, i + 255)}&`;
+					
+					length++;
+				}
+				
+				dataQuery += `length=${length}`;
+				console.log(dataQuery);
+			   	$.ajax({
+	                url: '/TrabalhoWeb2/avatar',
+	                method: 'POST',
+	                /*data: {
+	                	blob: e.target.result,
+	                	teste: "10",
+	                },*/
+	                data: dataQuery,
+	                cache: false,
+	                processData: false
+	            }).done(function (response) {
+	                console.log(response);
+	            });
+		    }
 
-            $.ajax({
-                url: '/insert-avatar/' + submit.dataset.child,
-                method: 'POST',
-                data: formData,
-                cache: false,
-                contentType: false,
-                processData: false
-            }).done(function (response) {
-                console.log(response);
-            });
+            
 
         }, 'image/png');
     });
