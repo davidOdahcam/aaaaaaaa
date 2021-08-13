@@ -64,19 +64,27 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
+                                <h6 class="mb-0">CEP:</h6>
+                            </div>
+                            <div class="col-sm-9 text-secondary">
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("cep") %></span>
+                            </div>
+                        </div>
+                        <div class="row pt-3 pb-1 border-bottom">
+                            <div class="col-sm-3">
                                 <h6 class="mb-0">Endere�o</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("street") %></span>,
-                                <span>COMPLEMENTO</span>,
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") %></span>,
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("number") %></span>
                                 
                             </div>
                         </div>
                         <div class="row pt-4">
                             <div class="col-sm-12 d-flex justify-content-end">
-                                <button class="btn btn-success">Editar</button>
+                                <button class="btn btn-success" data-toggle="modal" data-target="#editProfile">Editar</button>
                             </div>
                         </div>
                     </div>
@@ -142,6 +150,62 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div id="modals">
+    	<div class="modal fade" id="editProfile" tabindex="-1" role="dialog" aria-labelledby="editProfileTypeLabel" aria-hidden="true">
+	        <div class="modal-dialog modal-lg" role="document">
+	            <div class="modal-content">
+	                <div class="modal-header bg-gradient-danger">
+	                    <h2 class="container-title mb-0">Edite seu perfil</h2>
+	                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                    </button>
+	                </div>
+	                <div class="modal-body">
+					    <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label for="name">Nome</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="email">E-mail</label>
+                                <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu email" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="phone">Telefone</label>
+                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu Telefone" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="neighborhood">Bairro</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="street">Rua</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="complement">Complemento</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="number">Número</label>
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                <small class="text-danger"></small>
+                            </div>
+                        </div>
+	                </div>
+	                <div class="modal-footer">
+	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
     </div>
 </div>
 

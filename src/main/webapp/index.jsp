@@ -33,7 +33,7 @@
 	        <div class="modal-dialog modal-lg" role="document">
 	            <div class="modal-content">
 	                <div class="modal-header bg-gradient-danger">
-	                    <h2 class="container-title">Eu sou um...</h2>
+	                    <h2 class="container-title mb-0">Eu sou um...</h2>
 	                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
 	                        <span aria-hidden="true">&times;</span>
 	                    </button>

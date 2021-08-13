@@ -9,7 +9,8 @@
 
     <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/css/style.css">
     <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/css/toastr.min.css">
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/public/assets/fontawesome/css/all.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <title>${param.title}</title>
 </head>
@@ -20,6 +21,7 @@
 		    <div class="container">
 		        <div class="header-content">
 		            <a href="<%= request.getContextPath() %>/"><img src="./public/assets/images/ufrrj-white.svg" alt="Logotipo da UFRRJ" class="logo"/></a>
+                    <a href="./logout" class="ml-auto text-white mt-3">Logout</a>
 		        </div>
 		    </div>
 		</header>
