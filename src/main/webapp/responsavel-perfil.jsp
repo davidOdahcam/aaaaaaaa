@@ -13,7 +13,9 @@
                             <div class="mt-3">
                                 <h4><%=  ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
                                 <p class="text-secondary mb-3">Respons�vel</p>
-                                <button class="btn btn-primary">Cadastrar Filho(a)</button>
+                                <form action="crianca-cadastrar.jsp" method="get">
+                                	<button class="btn btn-primary">Cadastrar Filho(a)</button>
+                                </form>
                             </div>
                         </div>
                     </div>
