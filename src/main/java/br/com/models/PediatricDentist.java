@@ -18,7 +18,7 @@ public class PediatricDentist extends User {
 	public String phone;
 	
 	public PediatricDentist() throws ClassNotFoundException, SQLException {
-		super(tableName);
+		super(singular, tableName);
 	}
 	
 	public boolean registerChild(String[] childParams) {

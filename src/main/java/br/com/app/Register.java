@@ -103,13 +103,10 @@ public class Register extends HttpServlet {
 				
 				response.sendRedirect("login");
 			} catch (ClassNotFoundException | SQLException e) {
-				// TODO Auto-generated catch block
 				request.getSession().setAttribute("error", e.getMessage());
 				
 				response.sendRedirect("cadastrar?" + data.get("type")[0]);
 			}
-					
-			response.getWriter().println("Beleza!");
 		}
 	}
 

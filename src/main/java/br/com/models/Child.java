@@ -20,7 +20,7 @@ public class Child extends Model {
 	public String pathology_history;
 	
 	public Child() throws ClassNotFoundException, SQLException {
-		super(tableName);
+		super(singular, tableName);
 	}
 	
 	public boolean createAvatar() {

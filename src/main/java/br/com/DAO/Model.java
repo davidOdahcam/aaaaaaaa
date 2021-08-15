@@ -20,7 +20,8 @@ public class Model {
 	private ArrayList<Map<String, String>> results;
 	private ResultSet resultSet;
 	
-	public Model(String tableName) throws SQLException, ClassNotFoundException {
+	public Model(String singular, String tableName) throws SQLException, ClassNotFoundException {
+		this.singular = singular;
 		this.tableName = tableName;
 		this.conn = DatabaseConnection.initializeDatabase();
 		this.tableColumns = new ArrayList<String>();
@@ -132,7 +133,7 @@ public class Model {
 				result_final.add(result_map);
 			} while(this.resultSet.next());		
 						
-			this.preparedQuery.close();
+			//this.preparedQuery.close();
 			this.results = result_final;
 
 			return this;
@@ -271,13 +272,61 @@ public class Model {
 		
 		return this.hasOne(className, singular.concat("_id"), "id");
 	}
+	
+	public ArrayList<Map<String, String>> hasMany(Class<? extends Model> className) {
+		Model instance;
+		
+		try {
+			instance = className.getDeclaredConstructor().newInstance();
+		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
+				| NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+			return null;
+		}
+		
+		String child_table = instance.tableName;
+		String father_id = this.results.get(0) != null ? this.results.get(0).get("id") : null;
+		
+		if(father_id == null) {
+			return null;
+		}
+
+		PreparedStatement pq = this.preparedQuery;
+		
+		try {
+			ArrayList<Map<String, String>> children = new ArrayList<Map<String, String>>();
+		
+			this.preparedQuery = this.conn.prepareStatement("select * from " + child_table + " where " + this.singular.concat("_id") + " = " + father_id); 
+			ResultSet res = this.preparedQuery.executeQuery();
+			
+			if(!res.next()) {
+				return null;
+			}
+
+			int cols = res.getMetaData().getColumnCount();
+			
+			do {
+				Map<String, String> child = new HashMap<String, String>();
+				
+				for(int i = 1; i <= cols; i++) {
+					child.put(res.getMetaData().getColumnName(i), res.getString(i));
+				}
+				
+				children.add(child);
+			} while(res.next());
+			
+			return children;
+		} catch(SQLException e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
 		
 	public void closeConnection() {
 		try {
 			this.preparedQuery.close();
 			this.conn.close();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

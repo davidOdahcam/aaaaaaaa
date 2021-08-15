@@ -16,11 +16,11 @@ public class User extends Model {
 	public String password;
 	
 	public User() throws ClassNotFoundException, SQLException {
-		super(tableName);
+		super(singular, tableName);
 	}
 	
-	public User(String childTableName) throws ClassNotFoundException, SQLException {
-		super(childTableName);
+	public User(String tableName, String singular) throws ClassNotFoundException, SQLException {
+		super(tableName, singular);
 	}
 	
 	public boolean login() {

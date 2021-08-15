@@ -5,8 +5,8 @@ import java.sql.SQLException;
 import br.com.DAO.Model;
 
 public class Avatar extends Model {
-	public static final String singular = "child";
-	public static final String tableName = "children";
+	public static final String singular = "avatar";
+	public static final String tableName = "avatars";
 	
 	public int id;
 	public int child_id; // AVALIAR
@@ -24,6 +24,6 @@ public class Avatar extends Model {
 	public int cloth_color;
 	
 	public Avatar() throws ClassNotFoundException, SQLException {
-		super(tableName);
+		super(singular, tableName);
 	}
 }

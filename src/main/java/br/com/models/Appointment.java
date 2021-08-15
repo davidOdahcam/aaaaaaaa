@@ -18,7 +18,7 @@ public class Appointment extends Model {
 	public int emotions_result;
 	
 	public Appointment() throws ClassNotFoundException, SQLException {
-		super(tableName);
+		super(singular, tableName);
 	}
 	
 	public int calculateEmotion() {

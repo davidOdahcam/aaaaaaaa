@@ -1,6 +1,8 @@
 package br.com.models;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class Responsible extends User {
 	public static final String singular = "responsible";
@@ -18,6 +20,23 @@ public class Responsible extends User {
 	public String profession;
 	
 	public Responsible() throws ClassNotFoundException, SQLException {
-		super(tableName);
+		super(singular, tableName);
+	}
+	
+	public static void main(String[] args) {
+		try {
+			Responsible r = new Responsible();
+			
+			System.out.println(((Responsible) r.find("1").get()).children());
+		} catch (ClassNotFoundException | SQLException e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	public ArrayList<Map<String, String>> children() {
+		ArrayList<Map<String, String>> children = this.hasMany(Child.class);
+		
+		return children;
 	}
 }
