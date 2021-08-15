@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.xml.bind.DatatypeConverter;
+
+import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,7 +20,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/avatar")
 public class Avatar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+	private String FileLocation = "D:\\Documentos\\UFRRJ\\Fer WEB 2\\Projetos\\TrabalhoWeb2\\src\\main\\webapp\\uploads";
+	
     /**
      * Default constructor. 
      */
@@ -66,24 +70,41 @@ public class Avatar extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+        
+        System.out.println(request.getContextPath());
+		
 		int length = Integer.parseInt(request.getParameter("length"));
 		
 		String blob = "";
+		String step;
 		
-		try {			
+		try {
 			for(int i = 0; i < length; i++) {
-				blob = blob.concat(request.getParameter("blob_".concat(Integer.toString(i))).replaceAll(" ", "+"));
-			}
+				step = "blob_".concat(Integer.toString(i));
 
+				blob = blob.concat(request.getParameter(step).replaceAll(" ", "+"));
+			}
 			
+	        String[] strings = blob.split(",");
+
+	        byte[] data = DatatypeConverter.parseBase64Binary(strings[1]);
+	        String path = FileLocation + "/avatar.png"; // RITTON, COLOQUE O ID DA CRIANï¿½A NO NOME DO AVATAR.
+	        
+	        File file = new File(path);
+	        
+	        try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
+	            outputStream.write(data);
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }
+
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
-		// USAR BLOB | O BLOB NÃO É REPRESENTÁVEL NO CONSOLE PORQUE É MUITO GRANDE
-		System.out.println("blob -> " + blob);
 	}
 
 }
