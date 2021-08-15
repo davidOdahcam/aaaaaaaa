@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import br.com.DAO.DatabaseConnection;
 import br.com.DAO.Model;
 
 public class Child extends Model {
@@ -20,12 +21,11 @@ public class Child extends Model {
 	public String birthdate; //YYYY-MM-DD HH:mm:SS
 	public char sex; // M - F - O
 	public String cpf; 
-	private Connection conn;
+	private Connection conn = DatabaseConnection.initializeDatabase();
 	public String family_history;
 	public String pathology_history;
 	private String query = "";
 	private PreparedStatement preparedQuery;
-	protected ArrayList<String> tableColumns;
 	private ArrayList<Map<String, String>> results;
 	
 	public Child() throws ClassNotFoundException, SQLException {
