@@ -42,19 +42,16 @@ public class Avatar extends HttpServlet {
     	
     	json = json.concat(String.join(",", attributes));
     	json = json.concat("}");
-    	
-
-    	System.out.println("Current absolute path is: " + System.getProperty("user.dir"));
-    	
+       	
     	return json;
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("application/json");
-		System.out.println("Classe => " + this.getClass().getClassLoader().getResource("/").getPath());
-		System.out.println("Session => " + request.getSession().getServletContext().getRealPath("/"));
-		System.out.println(request.getRequestURI());
-		System.out.println(request.getRealPath(request.getServletPath()));
+		//System.out.println("Classe => " + this.getClass().getClassLoader().getResource("/").getPath());
+		//System.out.println("Session => " + request.getSession().getServletContext().getRealPath("/"));
+		//System.out.println(request.getRequestURI());
+		//System.out.println(request.getRealPath(request.getServletPath()));
 		
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("name", "Pedro");
