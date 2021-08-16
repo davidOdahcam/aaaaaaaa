@@ -88,6 +88,7 @@ public class Login extends HttpServlet {
 					//response.addCookie(new Cookie("responsible_id", responsible_id));
 					
 					request.getSession().setAttribute("responsible", r.toArrayList().get(0));
+					request.getSession().setAttribute("children", r.children());
 					
 					jsp = "responsavel-perfil.jsp";
 				} else if(p_d.where("user_id", id).get() != null) {

@@ -99,54 +99,38 @@
                     <div class="card-body">
                         <h4 class="text-center">Filhos Cadastrados</h4>
                         <div class="row">
-                            <div class="col-md-4 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar5.png" alt="Admin"
-                                                class="rounded-circle" width="150">
-                                            <div class="mt-3">
-                                                <h4>Froyd da Silva</h4>
-                                                <p class="text-secondary mb-3">Responsável</p>
-                                                <button class="btn btn-primary">Ver Perfil</button>
-                                                <button class="btn btn-primary">Ver Avatar</button> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar6.png" alt="Admin"
-                                                class="rounded-circle" width="150">
-                                            <div class="mt-3">
-                                                <h4>Matheus Ritton</h4>
-                                                <p class="text-secondary mb-3">Responsável</p>
-                                                <button class="btn btn-primary">Ver Perfil</button>
-                                                <button class="btn btn-primary">Ver Avatar</button> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-3">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex flex-column align-items-center text-center">
-                                            <img src="https://www.bootdey.com/img/Content/avatar/avatar1.png" alt="Admin"
-                                                class="rounded-circle" width="150">
-                                            <div class="mt-3">
-                                                <h4>Eduardo Pereira</h4>
-                                                <p class="text-secondary mb-3">Responsável</p>
-                                                <button class="btn btn-primary">Ver Perfil</button>
-                                                <button class="btn btn-primary">Ver Avatar</button> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- 
+                        	Iterar pelo ArrayList
+                        	pegar o ID da criança 
+                        	pegar o nome da criança
+                        -->
+                            <% for(int i = 0; i < ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).size(); i++) { %>
+                            	<div class="col-md-4 mb-3">
+	                                <div class="card">
+	                                    <div class="card-body">
+	                                        <div class="d-flex flex-column align-items-center text-center">
+	                                   			<% if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("path_avatar") != null) { %>
+		                                            <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin"
+		                                                class="rounded-circle" width="150">
+	                                   			<% } else if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex") == "M") { %>
+	                                                <img src="<%= request.getContextPath() %>/public/assets/images/boy.png" alt="Admin"
+	                                                	class="rounded-circle" width="150">
+                                                <% } else { %>
+	                                                <img src="<%= request.getContextPath() %>/public/assets/images/girl.png" alt="Admin"
+	                                                	class="rounded-circle" width="150">
+                                                <% } %>
+	                                            <div class="mt-3">
+	                                                <h4><%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("name") %></h4>
+	                                         		<p class="text-secondary mb-3"><%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex") %></p>
+	                                                <!-- <p class="text-secondary mb-3">Responsável</p> -->
+	                                                <button id="<%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id") %>" class="btn btn-primary">Perfil</button>
+	                                                <a href="./avatar?id=<%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id") %>" class="btn btn-primary">Avatar</a> 
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+                            <% } %>
                         </div>
                     </div>
                 </div>

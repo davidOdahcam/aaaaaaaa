@@ -41,6 +41,9 @@ public class Logout extends HttpServlet {
 			request.getSession().setAttribute("pediatric_dentist_id", null);
 			request.getSession().setAttribute("responsible_id", null);
 			request.getSession().setAttribute("warning", "Logout realizado");
+			request.getSession().setAttribute("responsible", null);
+			request.getSession().setAttribute("pediatric", null);
+			request.getSession().setAttribute("children", null);
 			
 			response.sendRedirect("login");
 		}
