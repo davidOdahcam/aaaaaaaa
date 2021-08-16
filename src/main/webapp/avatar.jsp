@@ -69,7 +69,7 @@
 			</div>
 		</div>
             
-        <button type="button" id="submit" class="btn btn-info" data-child="AQUI VAI O ID DA CRIANÇA">Enviar</button>
+        <button id="submit" class="btn btn-info" data-child="AQUI VAI O ID DA CRIANÇA">Enviar</button>
     </div>
 </div>
 

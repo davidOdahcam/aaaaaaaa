@@ -12,8 +12,10 @@
                             <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4><%=  ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
-                                <p class="text-secondary mb-3">Responsï¿½vel</p>
-                                <button class="btn btn-primary">Cadastrar Filho(a)</button>
+                                <p class="text-secondary mb-3">Responsável</p>
+                                <form action="crianca-cadastrar.jsp" method="get">
+                                	<button class="btn btn-primary">Cadastrar Filho(a)</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -56,7 +58,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profissï¿½o:</h6>
+                                <h6 class="mb-0">Profissão:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("profession") %></span>
@@ -72,7 +74,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endereï¿½o</h6>
+                                <h6 class="mb-0">Endereço</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
@@ -105,7 +107,7 @@
                                                 class="rounded-circle" width="150">
                                             <div class="mt-3">
                                                 <h4>Froyd da Silva</h4>
-                                                <p class="text-secondary mb-3">ResponsÃ¡vel</p>
+                                                <p class="text-secondary mb-3">Responsável</p>
                                                 <button class="btn btn-primary">Ver Perfil</button>
                                                 <button class="btn btn-primary">Ver Avatar</button> 
                                             </div>
@@ -121,7 +123,7 @@
                                                 class="rounded-circle" width="150">
                                             <div class="mt-3">
                                                 <h4>Matheus Ritton</h4>
-                                                <p class="text-secondary mb-3">ResponsÃ¡vel</p>
+                                                <p class="text-secondary mb-3">Responsável</p>
                                                 <button class="btn btn-primary">Ver Perfil</button>
                                                 <button class="btn btn-primary">Ver Avatar</button> 
                                             </div>
@@ -137,7 +139,7 @@
                                                 class="rounded-circle" width="150">
                                             <div class="mt-3">
                                                 <h4>Eduardo Pereira</h4>
-                                                <p class="text-secondary mb-3">ResponsÃ¡vel</p>
+                                                <p class="text-secondary mb-3">Responsável</p>
                                                 <button class="btn btn-primary">Ver Perfil</button>
                                                 <button class="btn btn-primary">Ver Avatar</button> 
                                             </div>
@@ -202,8 +204,8 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">NÃºmero</label>
-                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu NÃºmero" required/>
+                                    <label for="number">Número</label>
+                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu Número" required/>
                                     <small class="text-danger"></small>
                                 </div>
                             </div>

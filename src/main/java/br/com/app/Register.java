@@ -94,11 +94,11 @@ public class Register extends HttpServlet {
 					
 					p_d = (PediatricDentist) new PediatricDentist().create(addData);
 					
-					request.getSession().setAttribute("success", "Seu perfil de Odontopediatra foi criado com sucesso! Realize o login para ter acesso a aplicação");
+					request.getSession().setAttribute("success", "Seu perfil de Odontopediatra foi criado com sucesso! Realize o login para ter acesso a aplicaÃ§Ã£o");
 				} else {
 					new Responsible().create(addData);	
 					
-					request.getSession().setAttribute("success", "Seu perfil de Resnponsável foi criado com sucesso! Realize o login para ter acesso a aplicação");
+					request.getSession().setAttribute("success", "Seu perfil de Resnponsï¿½vel foi criado com sucesso! Realize o login para ter acesso a aplicaÃ§Ã£o");
 				}
 				
 				response.sendRedirect("login");
