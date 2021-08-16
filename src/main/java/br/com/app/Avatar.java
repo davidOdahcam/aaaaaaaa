@@ -68,10 +68,7 @@ public class Avatar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		
-        
-        System.out.println(request.getContextPath());
+		System.out.println(request.getContextPath());
 		
 		int length = Integer.parseInt(request.getParameter("length"));
 		
