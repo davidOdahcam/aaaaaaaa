@@ -12,7 +12,7 @@
                             <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4><%=  ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
-                                <p class="text-secondary mb-3">Respons醰el</p>
+                                <p class="text-secondary mb-3">Respons锟絭el</p>
                                 <form action="crianca-cadastrar.jsp" method="get">
                                 	<button class="btn btn-primary">Cadastrar Filho(a)</button>
                                 </form>
@@ -58,7 +58,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profiss鉶:</h6>
+                                <h6 class="mb-0">Profiss锟給:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("profession") %></span>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endere鏾</h6>
+                                <h6 class="mb-0">Endere锟給</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
@@ -101,8 +101,8 @@
                         <div class="row">
                         <!-- 
                         	Iterar pelo ArrayList
-                        	pegar o ID da crian鏰 
-                        	pegar o nome da crian鏰
+                        	pegar o ID da crian锟絘 
+                        	pegar o nome da crian锟絘
                         -->
                             <% for(int i = 0; i < ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).size(); i++) { %>
                             	<div class="col-md-4 mb-3">
@@ -122,8 +122,8 @@
 	                                            <div class="mt-3">
 	                                                <h4><%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("name") %></h4>
 	                                         		<p class="text-secondary mb-3"><%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex") %></p>
-	                                                <!-- <p class="text-secondary mb-3">Respons醰el</p> -->
-	                                                <button id="<%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id") %>" class="btn btn-primary">Perfil</button>
+	                                                <!-- <p class="text-secondary mb-3">Respons锟絭el</p> -->
+	                                                <button id="<%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id") %>" class="btn btn-primary" data-toggle="modal" data-target="#editChildrenId-<%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id") %>">Perfil</button>
 	                                                <a href="./avatar?id=<%= ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id") %>" class="btn btn-primary">Avatar</a> 
 	                                            </div>
 	                                        </div>
@@ -154,42 +154,42 @@
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label for="name">Nome</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
+                                    <input type="text" name="name" id="name" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %>" class="form-control" placeholder="Digite seu nome" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="email">E-mail</label>
-                                    <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu email" required/>
+                                    <input type="text" name="email" id="email" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("email") %>" class="form-control" placeholder="Digite seu email" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phone">Telefone</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu Telefone" required/>
+                                    <input type="text" name="phone" id="phone" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("phone") %>" class="form-control" placeholder="Digite seu Telefone" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="cep">CEP</label>
-                                    <input type="text" name="cep" id="cep" class="form-control" placeholder="Digite seu CEP" required/>
+                                    <input type="text" name="cep" id="cep" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("cep") %>" class="form-control" placeholder="Digite seu CEP" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="neighborhood">Bairro</label>
-                                    <input type="text" name="neighborhood" id="neighborhood" class="form-control" placeholder="Digite seu Bairro" required/>
+                                    <input type="text" name="neighborhood" id="neighborhood" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %>" class="form-control" placeholder="Digite seu Bairro" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="street">Rua</label>
-                                    <input type="text" name="street" id="street" class="form-control" placeholder="Digite sua Rua" required/>
+                                    <input type="text" name="street" id="street" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("street") %>" class="form-control" placeholder="Digite sua Rua" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="complement">Complemento</label>
-                                    <input type="text" name="complement" id="complement" class="form-control" placeholder="Digite seu Complemento" required/>
+                                    <input type="text" name="complement" id="complement" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") %>" class="form-control" placeholder="Digite seu Complemento" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">N鷐ero</label>
-                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu N鷐ero" required/>
+                                    <label for="number">N锟絤ero</label>
+                                    <input type="text" name="number" id="number" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("number") %>" class="form-control" placeholder="Digite seu N锟絤ero" required/>
                                     <small class="text-danger"></small>
                                 </div>
                             </div>
@@ -201,6 +201,64 @@
 	            </div>
 	        </div>
 	    </div>
+        
+        <% for(int i = 0; i < ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).size(); i++) { %>
+            <div class="modal fade" id="editChildrenId-<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id")%>" tabindex="-1" role="dialog" aria-labelledby="editProfileTypeLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-gradient-danger">
+                            <h2 class="container-title mb-0">Edite o perfil de seu filho(a)</h2>
+                            <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="./crianca" method="POST" id="ChildrenFormId-<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id")%>" class="form">       
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="name">Nome</label>
+                                        <input type="text" name="name" id="name" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("name")%>" placeholder="Digite o nome" required/>
+                                    </div>
+                                    
+                                     <div class="form-group col-md-6">
+                                        <label for="name">CPF</label>
+                                        <input type="text" name="cpf" id="cpf" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("cpf")%>" placeholder="Digite o CPF" required/>
+                                    </div>
+                                    
+                                     <div class="form-group col-md-6">
+                                        <label for="name">Hist贸rico familiar</label>
+                                        <input type="text" name="family_history" id="family_history" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("family_history")%>" placeholder="Digite o hist贸rico familiar" required/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="name">Hist贸rico patol贸gico</label>
+                                        <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("pathology_history")%>" placeholder="Digite o hist贸rico patol贸gico" required/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                        <label for="birthdate">Data de nascimento</label>
+                                        <input type="date" name="birthdate" id="birthdate" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("birthdate")%>" placeholder="DD/MM/AAAA" aria-describedby="small-birthdate"/>
+                                    </div>
+                                    
+                                    <div class="form-group col-md-6">
+                                       <label for="sex">Sexo</label>
+                                        <select name="sex" id="sex" class="form-control">
+                                            <option value="">- Selecione -</option>
+                                            <option value="F" <% if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex").equals("F")){ %> Selected <%  } %>>Feminino</option>
+                                            <option value="M" <% if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex").equals("M")){ %> Selected <% } %>>Masculino</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                            <button type="button" form="ChildrenFormId-<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("id")%>" class="btn btn-success" data-dismiss="modal">Atualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <% } %> 
     </div>
 </div>
 

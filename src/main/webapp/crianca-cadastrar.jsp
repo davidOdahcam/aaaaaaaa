@@ -13,25 +13,25 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="name">Nome</label>
-                    <input type="text" name="name" id="name" class="form-control" value="" placeholder="Digite seu nome" aria-describedby="small-email" required/>
+                    <input type="text" name="name" id="name" class="form-control" value="" placeholder="Digite o nome" required/>
                     <small class="text-danger"></small>
                 </div>
                 
                  <div class="form-group col-md-6">
                     <label for="name">CPF</label>
-                    <input type="text" name="cpf" id="cpf" class="form-control" value="" placeholder="Digite seu nome" aria-describedby="small-email" required/>
+                    <input type="text" name="cpf" id="cpf" class="form-control" value="" placeholder="Digite o CPF" required/>
                     <small class="text-danger"></small>
                 </div>
                 
                  <div class="form-group col-md-6">
-                    <label for="name">Family History</label>
-                    <input type="text" name="family_history" id="family_history" class="form-control" value="" placeholder="Digite seu nome" aria-describedby="small-email" required/>
+                    <label for="name">Histórico familiar</label>
+                    <input type="text" name="family_history" id="family_history" class="form-control" value="" placeholder="Digite o histórico familiar" required/>
                     <small class="text-danger"></small>
                 </div>
                 
                 <div class="form-group col-md-6">
-                    <label for="name">Pathology History</label>
-                    <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="" placeholder="Digite seu nome" aria-describedby="small-email" required/>
+                    <label for="name">Histórico patológico</label>
+                    <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="" placeholder="Digite o histórico patológico" required/>
                     <small class="text-danger"></small>
                 </div>
                 
@@ -51,9 +51,10 @@
                     </select>
                     <small class="text text-danger"></small>
                 </div>
+                
             </div>
             
-            <button onclick="validate()" type="button" class="btn btn-color-3 btn-lg btn-block mt-4">Cadastrar</button>
+            <button type="submit" class="btn btn-color-3 btn-lg btn-block mt-4">Cadastrar</button>
             
             <hr>
         </form>

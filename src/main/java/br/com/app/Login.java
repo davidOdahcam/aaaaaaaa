@@ -2,6 +2,7 @@ package br.com.app;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -88,7 +89,14 @@ public class Login extends HttpServlet {
 					//response.addCookie(new Cookie("responsible_id", responsible_id));
 					
 					request.getSession().setAttribute("responsible", r.toArrayList().get(0));
-					request.getSession().setAttribute("children", r.children());
+					ArrayList<Map<String,String>> carlos = r.children();						//conserta essa merda aqui raposo
+					System.out.println(carlos);
+					if(carlos == null) {
+						request.getSession().setAttribute("children", new ArrayList<Map<String,String>>());
+					}else {
+						request.getSession().setAttribute("children", carlos);
+					}
+					
 					
 					jsp = "responsavel-perfil.jsp";
 				} else if(p_d.where("user_id", id).get() != null) {
