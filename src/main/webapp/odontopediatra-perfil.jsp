@@ -15,7 +15,7 @@
                                 <h4><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("name") %></h4>
                                 <p class="text-secondary mb-3">Odontologista</p>
                                 <button class="btn btn-primary">Cadastrar Paciente</button>
-                                <button class="btn btn-outline-primary">Gerar Relatório</button>
+                                <button class="btn btn-outline-primary">Gerar Relatï¿½rio</button>
                                 <div class="input-group mt-3">
                                     <input type="text" class="form-control" placeholder="Buscar paciente" />
                                     <div class="input-group-append">
@@ -82,7 +82,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endereço</h6>
+                                <h6 class="mb-0">Endereï¿½o</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("neighborhood") %></span>,
@@ -266,7 +266,7 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">Número</label>
+                                    <label for="number">Nï¿½mero</label>
                                     <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu NÃºmero" required/>
                                     <small class="text-danger"></small>
                                 </div>
@@ -282,6 +282,7 @@
 	        </div>
 	    </div>
     </div>
+    
 </div>
 
 <jsp:include page="/inc/footer.jsp" />

@@ -297,12 +297,13 @@ public class Model {
 			ArrayList<Map<String, String>> children = new ArrayList<Map<String, String>>();
 		
 			this.preparedQuery = this.conn.prepareStatement("select * from " + child_table + " where " + this.singular.concat("_id") + " = " + father_id); 
+			System.out.println("select * from " + child_table + " where " + this.singular.concat("_id") + " = " + father_id);
 			ResultSet res = this.preparedQuery.executeQuery();
 			
 			if(!res.next()) {
 				return new ArrayList<Map<String, String>>();
 			}
-
+			
 			int cols = res.getMetaData().getColumnCount();
 			
 			do {
@@ -314,7 +315,7 @@ public class Model {
 				
 				children.add(child);
 			} while(res.next());
-			
+			System.out.println("dps while");
 			return children;
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
