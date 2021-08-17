@@ -58,7 +58,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profiss锟給:</h6>
+                                <h6 class="mb-0">Profiss鉶:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("profession") %></span>
@@ -74,7 +74,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endere锟給</h6>
+                                <h6 class="mb-0">Endere鏾</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
@@ -169,7 +169,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="cep">CEP</label>
-                                    <input type="text" name="cep" id="cep" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("cep") %>" class="form-control" placeholder="Digite seu CEP" required/>
+                                    <input type="text" name="cep" id="cep" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("zip_code") %>" class="form-control" placeholder="Digite seu CEP" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -184,11 +184,11 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="complement">Complemento</label>
-                                    <input type="text" name="complement" id="complement" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") %>" class="form-control" placeholder="Digite seu Complemento" required/>
+                                    <input type="text" name="complement" id="complement" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") != null ? ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") : "" %>" class="form-control" placeholder="Digite seu Complemento" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">N锟絤ero</label>
+                                    <label for="number">N鷐ero</label>
                                     <input type="text" name="number" id="number" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("number") %>" class="form-control" placeholder="Digite seu N锟絤ero" required/>
                                     <small class="text-danger"></small>
                                 </div>
@@ -226,12 +226,12 @@
                                     </div>
                                     
                                      <div class="form-group col-md-6">
-                                        <label for="name">Hist贸rico familiar</label>
+                                        <label for="name">Hist髍ico familiar</label>
                                         <input type="text" name="family_history" id="family_history" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("family_history")%>" placeholder="Digite o hist贸rico familiar" required/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="name">Hist贸rico patol贸gico</label>
+                                        <label for="name">Hist髍ico patol贸gico</label>
                                         <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="<%=((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("pathology_history")%>" placeholder="Digite o hist贸rico patol贸gico" required/>
                                     </div>
                                     
