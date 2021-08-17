@@ -52,7 +52,7 @@ public class Login extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		if(!this.redirectIfAuthenticated(request, response)) {			
-			request.getRequestDispatcher("index.jsp").forward(request, response);
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 
@@ -83,18 +83,11 @@ public class Login extends HttpServlet {
 				r = new Responsible();
 				p_d = new PediatricDentist();
 				
-				if(r.where("user_id", id).get() != null) {
-					//String responsible_id = r.toArrayList().get(0).get("id");
-					//response.addCookie(new Cookie("responsible_id", responsible_id));
-					
+				if(r.where("user_id", id).get() != null) {					
 					request.getSession().setAttribute("responsible", r.toArrayList().get(0));
-					request.getSession().setAttribute("children", r.children());
-					
+								
 					jsp = "responsavel-perfil.jsp";
 				} else if(p_d.where("user_id", id).get() != null) {
-					//String pediatric_dentist_id = p_d.toArrayList().get(0).get("id");
-					//response.addCookie(new Cookie("pediatric_dentist_id", pediatric_dentist_id));
-
 					request.getSession().setAttribute("pediatric", p_d.toArrayList().get(0));
 
 					jsp = "odontopediatra-perfil.jsp";
@@ -114,7 +107,7 @@ public class Login extends HttpServlet {
 				this.doGet(request, response);
 			}
 		} else {			
-			request.getSession().setAttribute("error", "Login e/ou senha inválidos");
+			request.getSession().setAttribute("error", "Login e/ou senha invï¿½lidos");
 			
 			this.doGet(request, response);
 		}

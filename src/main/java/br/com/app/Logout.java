@@ -37,15 +37,17 @@ public class Logout extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(!this.redirectIfNotAuthenticated(request, response)) {
-			request.getSession().setAttribute("user_id", null);
+			/*request.getSession().setAttribute("user_id", null);
 			request.getSession().setAttribute("pediatric_dentist_id", null);
 			request.getSession().setAttribute("responsible_id", null);
 			request.getSession().setAttribute("warning", "Logout realizado");
 			request.getSession().setAttribute("responsible", null);
 			request.getSession().setAttribute("pediatric", null);
-			request.getSession().setAttribute("children", null);
-			
+			request.getSession().setAttribute("children", null);*/
+
+			request.getSession().invalidate();
 			response.sendRedirect("login");
+
 		}
 	}
 

@@ -30,53 +30,64 @@ public class ChildServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
+    public boolean redirectIfNotAuthenticated(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	if(request.getSession().getAttribute("user_id") == null || request.getSession().getAttribute("responsible") == null) {
+			response.sendRedirect("login");
+			
+			return true;
+		}
+    	
+    	return false;
+    }
+    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		if(!this.redirectIfNotAuthenticated(request, response)) {
+			request.getRequestDispatcher("crianca-cadastrar.jsp").forward(request, response);
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		Enumeration<String> parameters = request.getParameterNames();
 		Map<String, String> valores = new HashMap<String, String>();
 		
 		Enumeration<String> sessionAttributes = request.getSession().getAttributeNames();
-		while(true){
-			try{
+		while(true) {
+			try {
 				String parameter_name = parameters.nextElement();
 				valores.put(parameter_name, request.getParameter(parameter_name));
-			}
-			catch(NoSuchElementException e){
+			} catch(NoSuchElementException e){
 				break;
 			}
-			}
-		while(true){
-			try{
+		}
+		
+		while(true) {
+			try {
 				String attribute_name = sessionAttributes.nextElement();
-				if(attribute_name == "user_id")
-				valores.put("responsible_id", request.getSession().getAttribute(attribute_name).toString());
-			}
-			catch(NoSuchElementException e){
+				if(attribute_name == "responsible") {
+					Map<String, String> r = (Map<String, String>) request.getSession().getAttribute(attribute_name);
+					valores.put("responsible_id", r.get("id"));
+				}
+			} catch(NoSuchElementException e){
 				break;
 			}
-			}
+		}
+		
 		try {
 			Child crianca = new Child();
 			crianca.create(valores);
+			
+			request.getSession().setAttribute("success", "Criança adicionada com sucesso");
 			response.sendRedirect("perfil");
-		} catch (ClassNotFoundException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		} 
 		
 	}
 

@@ -76,7 +76,7 @@ public class Model {
 	}
 
 	public Model where(String column, String operator, String value) {	
-		//TODO: Refatorar o código para evitar SQLInjection em column
+		//TODO: Refatorar o cï¿½digo para evitar SQLInjection em column
 		
 		try {
 			if(this.query.isEmpty()) {
@@ -146,7 +146,7 @@ public class Model {
 	
 	public Model create(Map<String, String> inserts) throws SQLException {
 		if(!this.query.isEmpty() || this.results != null) {
-			throw new SQLException("Impossível realizar essa opção neste momento.");
+			throw new SQLException("Impossï¿½vel realizar essa opï¿½ï¿½o neste momento.");
 		}
 				
 		ArrayList<String> cols = new ArrayList<String>();
@@ -190,7 +190,7 @@ public class Model {
 	public Model update(String[] updates) {
 		try {
 			if(this.query.isEmpty()) {
-				throw new SQLException("Impossível realizar essa opção neste momento.");
+				throw new SQLException("Impossï¿½vel realizar essa opï¿½ï¿½o neste momento.");
 			}
 			
 			this.get();
@@ -219,7 +219,7 @@ public class Model {
 	public boolean delete() {
 		try {
 			if(this.query.isEmpty()) {
-				throw new SQLException("Impossível realizar essa opção neste momento.");
+				throw new SQLException("Impossï¿½vel realizar essa opï¿½ï¿½o neste momento.");
 			}
 			
 			this.get();
@@ -281,14 +281,14 @@ public class Model {
 		} catch (InstantiationException | IllegalAccessException | IllegalArgumentException | InvocationTargetException
 				| NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
-			return null;
+			return new ArrayList<Map<String, String>>();
 		}
 		
 		String child_table = instance.tableName;
 		String father_id = this.results.get(0) != null ? this.results.get(0).get("id") : null;
 		
 		if(father_id == null) {
-			return null;
+			return new ArrayList<Map<String, String>>();
 		}
 
 		PreparedStatement pq = this.preparedQuery;
@@ -300,7 +300,7 @@ public class Model {
 			ResultSet res = this.preparedQuery.executeQuery();
 			
 			if(!res.next()) {
-				return null;
+				return new ArrayList<Map<String, String>>();
 			}
 
 			int cols = res.getMetaData().getColumnCount();
@@ -318,7 +318,7 @@ public class Model {
 			return children;
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
-			return null;
+			return new ArrayList<Map<String, String>>();
 		}
 	}
 		

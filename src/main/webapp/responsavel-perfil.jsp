@@ -11,10 +11,10 @@
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4><%=  ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
+                                <h4><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("name") %></h4>
                                 <p class="text-secondary mb-3">Responsável</p>
                                 <form action="crianca-cadastrar.jsp" method="get">
-                                	<button class="btn btn-primary">Cadastrar Filho(a)</button>
+                                	<a href="./crianca" class="btn btn-primary">Cadastrar Filho(a)</a>
                                 </form>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                                 <h6 class="mb-0">CEP:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("cep") %></span>
+                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("zip_code") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -79,7 +79,7 @@
                             <div class="col-sm-9 text-secondary">
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("neighborhood") %></span>,
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("street") %></span>,
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") %></span>,
+                               	<% if(((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") != null) { %>><span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("complement") %></span>,<% } %>
                                 <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("responsible")).get("number") %></span>
                                 
                             </div>
@@ -112,7 +112,7 @@
 	                                   			<% if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("path_avatar") != null) { %>
 		                                            <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin"
 		                                                class="rounded-circle" width="150">
-	                                   			<% } else if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex") == "M") { %>
+	                                   			<% } else if(((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex") != null && ((java.util.ArrayList<java.util.Map<String, String>>) request.getSession().getAttribute("children")).get(i).get("sex").equals("M")) { %>
 	                                                <img src="<%= request.getContextPath() %>/public/assets/images/boy.png" alt="Admin"
 	                                                	class="rounded-circle" width="150">
                                                 <% } else { %>

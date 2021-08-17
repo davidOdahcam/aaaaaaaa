@@ -1,7 +1,10 @@
 package br.com.app;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Map;
 
+import br.com.models.Responsible;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -19,7 +22,7 @@ public class Profile extends HttpServlet {
      * Default constructor. 
      */
     public Profile() {
-        // TODO Auto-generated constructor stub
+        
     }
     
     public boolean redirectIfNotAuthenticated(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,6 +41,23 @@ public class Profile extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		if(!this.redirectIfNotAuthenticated(request, response)) {			
 			String jsp = request.getSession().getAttribute("jsp").toString();
+	
+			if(request.getSession().getAttribute("responsible") != null) {	
+				Map<String, String> responsible_map = (Map<String, String>) request.getSession().getAttribute("responsible");
+				
+				String id = responsible_map.get("id");
+				Responsible r;
+				try {
+					r = (Responsible) new Responsible().find(id).get();
+		
+					request.getSession().setAttribute("children", r.children());
+				} catch (ClassNotFoundException | SQLException e) {
+					request.getSession().invalidate();
+					response.sendRedirect("login");
+				}
+			} else {
+				// COISAS DE ODONTOPEDIATRA
+			}
 			
 			request.getRequestDispatcher(jsp).forward(request, response);
 		}
