@@ -49,13 +49,13 @@
 
                 <div class="form-group col-md-6">
                     <label for="cep">CEP</label>
-                    <input type="text" name="cep" id="cep" class="form-control" value="" placeholder="Digite seu CEP" aria-describedby="small-cep" required/>
+                    <input type="text" name="zip_code" id="cep" class="form-control" value="" placeholder="Digite seu CEP" aria-describedby="small-cep" required/>
                     <small class="text text-danger"></small>
                 </div>
 
                 <div class="form-group col-md-6">
                     <label for="street">Rua</label>
-                    <input type="text" name="street" id="street" class="form-control" value="" placeholder="Digite sua Rua" aria-describedby="small-street" required/>
+                    <input type="text" name="street" id="street" class="form-control" value="" placeholder="Digite sua rua" aria-describedby="small-street" required/>
                     <small class="text text-danger"></small>
                 </div>
 

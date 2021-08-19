@@ -20,8 +20,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/avatar")
 public class Avatar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String FileLocation = "C:\\Users\\mathe\\Google Drive\\Programming\\Java\\eclipse-workshop\\TrabalhoWeb2\\src\\main\\webapp\\uploads";
-	
+	//private String FileLocation = "C:\\Users\\mathe\\Google Drive\\Programming\\Java\\eclipse-workshop\\TrabalhoWeb\\src\\main\\webapp\\uploads";
+	private String FileLocation = "D:\\workspace-eclipse\\TrabalhoWeb\\src\\main\\webapp\\uploads";
     /**
      * Default constructor. 
      */

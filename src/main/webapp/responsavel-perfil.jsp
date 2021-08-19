@@ -16,7 +16,7 @@
                             <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4><%= responsible.get("name") %></h4>
-                                <p class="text-secondary mb-3">Responsável</p>
+                                <p class="text-secondary mb-3">Responsï¿½vel</p>
                                 <form action="crianca-cadastrar.jsp" method="get">
                                 	<a href="./crianca" class="btn btn-primary">Cadastrar Filho(a)</a>
                                 </form>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profissão:</h6>
+                                <h6 class="mb-0">Profissï¿½o:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= responsible.get("profession") %></span>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endereço</h6>
+                                <h6 class="mb-0">Endereï¿½o</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= responsible.get("neighborhood") %></span>,
@@ -105,8 +105,8 @@
                         <div class="row">
                         <!-- 
                         	Iterar pelo ArrayList
-                        	pegar o ID da criança 
-                        	pegar o nome da criança
+                        	pegar o ID da crianï¿½a 
+                        	pegar o nome da crianï¿½a
                         -->
                             <% for(int i = 0; i < children.size(); i++) { %>
                             	<div class="col-md-4 mb-3">
@@ -126,7 +126,7 @@
 	                                            <div class="mt-3">
 	                                                <h4><%= children.get(i).get("name") %></h4>
 	                                         		<p class="text-secondary mb-3"><%= children.get(i).get("sex") %></p>
-	                                                <!-- <p class="text-secondary mb-3">Responsável</p> -->
+	                                                <!-- <p class="text-secondary mb-3">Responsï¿½vel</p> -->
 	                                                <button id="<%= children.get(i).get("id") %>" class="btn btn-primary" data-toggle="modal" data-target="#editChildrenId-<%= children.get(i).get("id") %>">Perfil</button>
 	                                                <a href="./avatar?id=<%= children.get(i).get("id") %>" class="btn btn-primary">Avatar</a> 
 	                                            </div>
@@ -192,7 +192,7 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">Número</label>
+                                    <label for="number">Nï¿½mero</label>
                                     <input type="text" name="number" id="number" value="<%= responsible.get("number") %>" class="form-control" placeholder="Digite seu Nï¿½mero" required/>
                                     <small class="text-danger"></small>
                                 </div>
@@ -200,8 +200,9 @@
                         </form>
 	                </div>
 	                <div class="modal-footer">
-	                    <button type="button" onclick="editResponsible()" class="btn btn-success">Editar</button>
+	                    
 	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                        <button type="button" onclick="editResponsible()" class="btn btn-success">Editar</button>
 	                </div>
 	            </div>
 	        </div>
@@ -231,12 +232,12 @@
                                     </div>
                                     
                                      <div class="form-group col-md-6">
-                                       <label for="family_history">Histórico familiar</label>
+                                       <label for="family_history">Histï¿½rico familiar</label>
                                        <input type="text" name="family_history" id="family_history" class="form-control" value="<%= children.get(i).get("family_history") %>" placeholder="Digite o histÃ³rico familiar"/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                       <label for="pathology_history">Histórico patológico</label>
+                                       <label for="pathology_history">Histï¿½rico patolï¿½gico</label>
                                        <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="<%= children.get(i).get("pathology_history") %>" placeholder="Digite o histÃ³rico patolÃ³gico"/>
                                     </div>
                                     
@@ -256,9 +257,9 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="modal-footer">
-                            <button type="button" data-id="<%= children.get(i).get("id") %>" form="ChildrenFormId-<%= children.get(i).get("id") %>" class="btn btn-success edit-child">Atualizar</button>
+                        <div class="modal-footer">   
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                            <button type="button" data-id="<%= children.get(i).get("id") %>" form="ChildrenFormId-<%= children.get(i).get("id") %>" class="btn btn-success edit-child">Atualizar</button>
                         </div>
                     </div>
                 </div>

@@ -18,9 +18,9 @@
                                 <h4><%= pediatric_dentist.get("name") %></h4>
                                 <p class="text-secondary mb-3">Odontologista</p>
                                 <button class="btn btn-primary">Cadastrar Paciente</button>
-                                <button class="btn btn-outline-primary">Gerar Relatï¿½rio</button>
+                                
                                 <div class="input-group mt-3">
-                                    <input type="text" class="form-control" placeholder="Buscar paciente" />
+                                    <input type="text" class="form-control" placeholder="Buscar crianï¿½a" />
                                     <div class="input-group-append">
                                         <button id="client-btn" class="btn btn-primary">
                                             <i class="fa fa-search" aria-hidden="true"></i>
@@ -56,7 +56,7 @@
                                 <h6 class="mb-0">E-mail:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= pediatric_dentist.get("email") != null ? pediatric_dentist.get("email") : "Não Informado" %></span>
+                                <span><%= pediatric_dentist.get("email") != null ? pediatric_dentist.get("email") : "Nï¿½o Informado" %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -64,7 +64,7 @@
                                 <h6 class="mb-0">Telefone:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= pediatric_dentist.get("phone") != null ? pediatric_dentist.get("phone") : "Não Informado" %></span>
+                                <span><%= pediatric_dentist.get("phone") != null ? pediatric_dentist.get("phone") : "Nï¿½o Informado" %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -126,7 +126,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -138,7 +138,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -149,7 +149,7 @@
                                 <a href="">Horario vago</a>
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
-                                <button class="btn btn-info">Marcar consulta</button>
+                                <button class="btn btn-info w-100">Marcar consulta</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -161,7 +161,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -173,7 +173,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -185,7 +185,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -197,7 +197,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                         <div class="row align-items-center py-2 border-bottom">
@@ -209,7 +209,7 @@
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
                                 <button class="btn btn-success">Consultar</button>
-                                <button class="btn btn-danger ml-2">Desmarcar</button>
+                                <button class="btn btn-danger ml-2" data-toggle="modal" data-target="#cancelAppointment">Desmarcar</button>
                             </div>
                         </div>
                     </div>
@@ -259,8 +259,8 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">Número</label>
-                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu Número" value="<%= pediatric_dentist.get("number") %>" required/>
+                                    <label for="number">Nï¿½mero</label>
+                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu Nï¿½mero" value="<%= pediatric_dentist.get("number") %>" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -273,12 +273,35 @@
 					    
 	                </div>
 	                <div class="modal-footer">
-                        <button type="button" onclick="editPediatricDentist()" form="form-edit" class="btn btn-success">Enviar</button>
-	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+	                	<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                        <button type="button" onclick="editPediatricDentist()" form="form-edit" class="btn btn-success">Enviar</button>	                    
 	                </div>
 	            </div>
 	        </div>
 	    </div>
+        <div class="modal fade" id="cancelAppointment"tabindex="-1" role="dialog" aria-labelledby="cancelAppointmentTypeLabel" aria-hidden="true" >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+	            <div class="modal-content">
+	                <div class="modal-header bg-danger">
+	                    <h2 class="text-light">Cancelar consulta</h2>
+	                    <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                    </button>
+	                </div>
+	                <div class="modal-body">
+                        <form action="" id="form-cancel">
+                            
+                            
+                        </form>
+					    
+	                </div>
+	                <div class="modal-footer">
+	                	<button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                        <button type="button" form="form-cancel" class="btn btn-outline-danger">Cancelar</button>	                    
+	                </div>
+	            </div>
+	        </div>
+        </div>
     </div>
     
 </div>
