@@ -2,10 +2,11 @@ package br.com.app;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Map;
 
+import br.com.listeners.RequestListener;
 import br.com.models.PediatricDentist;
 import br.com.models.Responsible;
 import br.com.models.User;
@@ -52,7 +53,7 @@ public class Login extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
-		if(!this.redirectIfAuthenticated(request, response)) {			
+		if(!this.redirectIfAuthenticated(request, response)) {		
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
@@ -108,7 +109,7 @@ public class Login extends HttpServlet {
 				this.doGet(request, response);
 			}
 		} else {			
-			request.getSession().setAttribute("error", "Login e/ou senha inv�lidos");
+			request.getSession().setAttribute("error", "Login e/ou senha inválidos");
 			
 			this.doGet(request, response);
 		}

@@ -82,9 +82,9 @@
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= responsible.get("neighborhood") %></span>,
-                                <span><%= responsible.get("street") %></span>,
-                               	<% if(responsible.get("complement") != null) { %>><span><%= responsible.get("complement") %></span>,<% } %>
-                                <span><%= responsible.get("number") %></span>
+                                <span><%= responsible.get("street") %></span> -
+                                <span><%= responsible.get("number") %></span>,
+                               	<% if(responsible.get("complement") != null) { %><span><%= responsible.get("complement") %></span>,<% } %>
                                 
                             </div>
                         </div>
@@ -105,8 +105,8 @@
                         <div class="row">
                         <!-- 
                         	Iterar pelo ArrayList
-                        	pegar o ID da crian锟絘 
-                        	pegar o nome da crian锟絘
+                        	pegar o ID da crian鏰 
+                        	pegar o nome da crian鏰
                         -->
                             <% for(int i = 0; i < children.size(); i++) { %>
                             	<div class="col-md-4 mb-3">
@@ -126,7 +126,7 @@
 	                                            <div class="mt-3">
 	                                                <h4><%= children.get(i).get("name") %></h4>
 	                                         		<p class="text-secondary mb-3"><%= children.get(i).get("sex") %></p>
-	                                                <!-- <p class="text-secondary mb-3">Respons锟絭el</p> -->
+	                                                <!-- <p class="text-secondary mb-3">Respons醰el</p> -->
 	                                                <button id="<%= children.get(i).get("id") %>" class="btn btn-primary" data-toggle="modal" data-target="#editChildrenId-<%= children.get(i).get("id") %>">Perfil</button>
 	                                                <a href="./avatar?id=<%= children.get(i).get("id") %>" class="btn btn-primary">Avatar</a> 
 	                                            </div>
@@ -152,7 +152,7 @@
 	                    </button>
 	                </div>
 	                <div class="modal-body">
-					    <form action="" id="form-edit">
+					    <form action="" id="form-edit" method="POST">
                             <input type="text" name="id" value="<%= responsible.get("id") %>" hidden>
                             <input type="text" name="type" value="responsavel" hidden>
                             <div class="form-row">
@@ -200,6 +200,7 @@
                         </form>
 	                </div>
 	                <div class="modal-footer">
+	                    <button type="button" onclick="editResponsible()" class="btn btn-success">Editar</button>
 	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
 	                </div>
 	            </div>
@@ -220,44 +221,44 @@
                             <form action="./crianca" method="POST" id="ChildrenFormId-<%= children.get(i).get("id") %>" class="form">       
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
-                                        <label for="name">Nome</label>
-                                        <input type="text" name="name" id="name" class="form-control" value="<%= children.get(i).get("name") %>" placeholder="Digite o nome" required/>
+                                       <label for="name">Nome</label>
+                                       <input type="text" name="name" id="name" class="form-control" value="<%= children.get(i).get("name") %>" placeholder="Digite o nome" required/>
                                     </div>
                                     
                                      <div class="form-group col-md-6">
-                                        <label for="name">CPF</label>
-                                        <input type="text" name="cpf" id="cpf" class="form-control" value="<%= children.get(i).get("cpf") %>" placeholder="Digite o CPF" required/>
+                                       <label for="cpf">CPF</label>
+                                       <input type="text" name="cpf" id="cpf" class="form-control" value="<%= children.get(i).get("cpf") %>" placeholder="Digite o CPF"/>
                                     </div>
                                     
                                      <div class="form-group col-md-6">
-                                        <label for="name">Hist髍ico familiar</label>
-                                        <input type="text" name="family_history" id="family_history" class="form-control" value="<%= children.get(i).get("family_history") %>" placeholder="Digite o hist贸rico familiar" required/>
+                                       <label for="family_history">Hist髍ico familiar</label>
+                                       <input type="text" name="family_history" id="family_history" class="form-control" value="<%= children.get(i).get("family_history") %>" placeholder="Digite o hist贸rico familiar"/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="name">Hist髍ico patol骻ico</label>
-                                        <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="<%= children.get(i).get("pathology_history") %>" placeholder="Digite o hist贸rico patol贸gico" required/>
+                                       <label for="pathology_history">Hist髍ico patol骻ico</label>
+                                       <input type="text" name="pathology_history" id="pathology_history" class="form-control" value="<%= children.get(i).get("pathology_history") %>" placeholder="Digite o hist贸rico patol贸gico"/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
-                                        <label for="birthdate">Data de nascimento</label>
-                                        <input type="date" name="birthdate" id="birthdate" class="form-control" value="<%= children.get(i).get("birthdate") %>" placeholder="DD/MM/AAAA" aria-describedby="small-birthdate"/>
+                                       <label for="birthdate">Data de nascimento</label>
+                                       <input required type="date" name="birthdate" id="birthdate" class="form-control" value="<%= children.get(i).get("birthdate") %>" placeholder="DD/MM/AAAA" aria-describedby="small-birthdate"/>
                                     </div>
                                     
                                     <div class="form-group col-md-6">
                                        <label for="sex">Sexo</label>
-                                        <select name="sex" id="sex" class="form-control">
-                                            <option value="">- Selecione -</option>
-                                            <option value="F" <% if(children.get(i).get("sex").equals("F")) { %> selected <% } %>>Feminino</option>
-                                            <option value="M" <% if(children.get(i).get("sex").equals("M")) { %> selected <% } %>>Masculino</option>
-                                        </select>
+                                       <select name="sex" id="sex" class="form-control">
+                                           <option value="">- Selecione -</option>
+                                           <option value="F" <% if(children.get(i).get("sex").equals("F")) { %> selected <% } %>>Feminino</option>
+                                           <option value="M" <% if(children.get(i).get("sex").equals("M")) { %> selected <% } %>>Masculino</option>
+                                       </select>
                                     </div>
                                 </div>
                             </form>
                         </div>
                         <div class="modal-footer">
+                            <button type="button" data-id="<%= children.get(i).get("id") %>" form="ChildrenFormId-<%= children.get(i).get("id") %>" class="btn btn-success edit-child">Atualizar</button>
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                            <button type="button" form="ChildrenFormId-<%= children.get(i).get("id") %>" class="btn btn-success" data-dismiss="modal">Atualizar</button>
                         </div>
                     </div>
                 </div>

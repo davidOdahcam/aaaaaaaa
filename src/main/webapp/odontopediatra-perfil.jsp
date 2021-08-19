@@ -3,6 +3,9 @@
 </jsp:include>
 
 <div class="container">
+	<% 
+		java.util.Map<String, String> pediatric_dentist = (java.util.Map<String, String>) request.getSession().getAttribute("pediatric");
+	%>
     <div class="main-body">
         <div class="row">
             <div class="col-md-4 mb-3">
@@ -12,7 +15,7 @@
                             <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
                                 class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("name") %></h4>
+                                <h4><%= pediatric_dentist.get("name") %></h4>
                                 <p class="text-secondary mb-3">Odontologista</p>
                                 <button class="btn btn-primary">Cadastrar Paciente</button>
                                 <button class="btn btn-outline-primary">Gerar Relatï¿½rio</button>
@@ -37,7 +40,7 @@
                                 <h6 class="mb-0">Nome Completo:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("name") %></span>
+                                <span><%= pediatric_dentist.get("name") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -45,7 +48,7 @@
                                 <h6 class="mb-0">CPF:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("cpf") %></span>
+                                <span><%= pediatric_dentist.get("cpf") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -53,7 +56,7 @@
                                 <h6 class="mb-0">E-mail:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("email") %></span>
+                                <span><%= pediatric_dentist.get("email") != null ? pediatric_dentist.get("email") : "Não Informado" %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -61,7 +64,7 @@
                                 <h6 class="mb-0">Telefone:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("phone") %></span>
+                                <span><%= pediatric_dentist.get("phone") != null ? pediatric_dentist.get("phone") : "Não Informado" %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -69,7 +72,7 @@
                                 <h6 class="mb-0">CRO:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("cro") %></span>
+                                <span><%= pediatric_dentist.get("cro") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -77,7 +80,7 @@
                                 <h6 class="mb-0">CEP:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("zip_code") %></span>
+                                <span><%= pediatric_dentist.get("zip_code") %></span>
                             </div>
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
@@ -85,10 +88,10 @@
                                 <h6 class="mb-0">Endereï¿½o</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("neighborhood") %></span>,
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("street") %></span>,
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("complement") %></span>,
-                                <span><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("number") %></span>
+                                <span><%= pediatric_dentist.get("neighborhood") %></span>,
+                                <span><%= pediatric_dentist.get("street") %></span> -
+                                <span><%= pediatric_dentist.get("number") %></span>,
+                                <% if(pediatric_dentist.get("complement") != null) { %><span><%= pediatric_dentist.get("complement") %></span><% } %>
                             </div>
                         </div>
                         <div class="row pt-4">
@@ -227,47 +230,42 @@
 	                </div>
 	                <div class="modal-body">
                         <form action="" id="form-edit">
-                            <input type="text" name="id" value="<%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("id") %>" hidden>
+                            <input type="text" name="id" value="<%= pediatric_dentist.get("id") %>" hidden>
                             <input type="text" name="type" value="odontopediatra" hidden>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
+                                <div class="form-group col-md-12">
                                     <label for="name">Nome</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" required/>
-                                    <small class="text-danger"></small>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="email">E-mail</label>
-                                    <input type="text" name="email" id="email" class="form-control" placeholder="Digite seu email" required/>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Digite seu nome" value="<%= pediatric_dentist.get("name") %>" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="phone">Telefone</label>
-                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu Telefone" required/>
+                                    <input type="text" name="phone" id="phone" class="form-control" placeholder="Digite seu Telefone" value="<%= pediatric_dentist.get("phone") %>" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="cep">CEP</label>
-                                    <input type="text" name="cep" id="cep" class="form-control" placeholder="Digite seu CEP" required/>
+                                    <input type="text" name="zip_code" id="zip_code" class="form-control" placeholder="Digite seu CEP" value="<%= pediatric_dentist.get("zip_code") %>" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="neighborhood">Bairro</label>
-                                    <input type="text" name="neighborhood" id="neighborhood" class="form-control" placeholder="Digite seu Bairro" required/>
+                                    <input type="text" name="neighborhood" id="neighborhood" class="form-control" placeholder="Digite seu Bairro" value="<%= pediatric_dentist.get("neighborhood") %>" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="street">Rua</label>
-                                    <input type="text" name="street" id="street" class="form-control" placeholder="Digite sua Rua" required/>
+                                    <input type="text" name="street" id="street" class="form-control" placeholder="Digite sua Rua" value="<%= pediatric_dentist.get("street") %>" required/>
+                                    <small class="text-danger"></small>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="number">Número</label>
+                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu Número" value="<%= pediatric_dentist.get("number") %>" required/>
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="complement">Complemento</label>
-                                    <input type="text" name="complement" id="complement" class="form-control" placeholder="Digite seu Complemento" required/>
-                                    <small class="text-danger"></small>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="number">Nï¿½mero</label>
-                                    <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu NÃºmero" required/>
+                                    <input type="text" name="complement" id="complement" class="form-control" placeholder="Digite seu Complemento" value="<%= pediatric_dentist.get("complement") %>"/>
                                     <small class="text-danger"></small>
                                 </div>
                             </div>
@@ -275,8 +273,8 @@
 					    
 	                </div>
 	                <div class="modal-footer">
+                        <button type="button" onclick="editPediatricDentist()" form="form-edit" class="btn btn-success">Enviar</button>
 	                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
-                        <button type="submit" form="form-edit" class="btn btn-success" data-dismiss="modal">Enviar</button>
 	                </div>
 	            </div>
 	        </div>

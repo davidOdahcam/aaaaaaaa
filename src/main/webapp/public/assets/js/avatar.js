@@ -241,7 +241,7 @@ submit.addEventListener('click', function () {
 				}
 				
 				dataQuery += `length=${length}`;
-				console.log(dataQuery);
+				//console.log(dataQuery);
 			   	$.ajax({
 	                url: '/TrabalhoWeb2/avatar',
 	                method: 'POST',

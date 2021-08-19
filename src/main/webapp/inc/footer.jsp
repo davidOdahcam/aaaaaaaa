@@ -34,6 +34,7 @@
 	<script src="<%= request.getContextPath() %>/public/assets/js/jquery.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/popper.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/editar-perfil.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/toastr.min.js"></script>
 
@@ -54,12 +55,16 @@
 	<script>
 		<% if(request.getSession().getAttribute("info") != null) { %>
 			toastr.info("<%= request.getSession().getAttribute("info") %>");
+			<% request.getSession().setAttribute("info", null); %>
 		<% } else if(request.getSession().getAttribute("warning") != null) { %>
 			toastr.warning("<%= request.getSession().getAttribute("warning") %>");
+			<% request.getSession().setAttribute("warning", null); %>
 		<%	} else if(request.getSession().getAttribute("error") != null) { %>
 			toastr.error("<%= request.getSession().getAttribute("error") %>");
+			<% request.getSession().setAttribute("error", null); %>
 		<%	} else if(request.getSession().getAttribute("success") != null) { %>
 			toastr.success("<%= request.getSession().getAttribute("success") %>");
+			<% request.getSession().setAttribute("success", null); %>
 		<%	} %>
 	</script>
 </body>

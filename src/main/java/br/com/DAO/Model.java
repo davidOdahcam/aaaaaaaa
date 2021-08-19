@@ -187,21 +187,24 @@ public class Model {
 		return this;
 	}
 	
-	public Model update(String[] updates) {
+	public Model update(Map<String, String> updates) {
 		try {
 			if(this.query.isEmpty()) {
-				throw new SQLException("Imposs�vel realizar essa op��o neste momento.");
+				throw new SQLException("Impossível realizar essa operação neste momento.");
 			}
 			
 			this.get();
 			this.preparedQuery = this.conn.prepareStatement(this.query, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
 			this.resultSet = this.preparedQuery.executeQuery();
 
-			while(this.resultSet.next()) {
-				for(int i = 0; i < updates.length; i++) {
-					String[] update_row = updates[i].split("=>");
-					String col = update_row[0].trim();
-					String val = update_row[1].trim();
+			while(this.resultSet.next()) {				
+				for(Map.Entry<String, String> update: updates.entrySet()) {			
+					if(!this.tableColumns.contains(update.getKey().trim())) {
+						continue;
+					}
+					
+					String col = update.getKey().trim();
+					String val = update.getValue().trim();
 					
 					this.resultSet.updateString(col, val);
 				}
@@ -297,7 +300,7 @@ public class Model {
 			ArrayList<Map<String, String>> children = new ArrayList<Map<String, String>>();
 		
 			this.preparedQuery = this.conn.prepareStatement("select * from " + child_table + " where " + this.singular.concat("_id") + " = " + father_id); 
-			System.out.println("select * from " + child_table + " where " + this.singular.concat("_id") + " = " + father_id);
+			
 			ResultSet res = this.preparedQuery.executeQuery();
 			
 			if(!res.next()) {
@@ -315,7 +318,7 @@ public class Model {
 				
 				children.add(child);
 			} while(res.next());
-			System.out.println("dps while");
+
 			return children;
 		} catch(SQLException e) {
 			System.out.println(e.getMessage());
