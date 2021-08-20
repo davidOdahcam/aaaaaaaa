@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Map;
 
+import br.com.models.Child;
 import br.com.models.Responsible;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -70,5 +71,36 @@ public class Profile extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+	
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String query = request.getQueryString();
+		
+		if(query.split("&").length == 0 || query.split("&").length > 1) {
+			response.setStatus(400);
+			response.getWriter().println("Abuso de API. Número incorreto de parâmetros na requisição");
+		} else {
+			String id = query.split("=")[1];
+			
+			try {
+				Child c = (Child) new Child().find(id);
+				
+				String responsible_id = c.toArrayList().get(0).get("responsible_id");
+				Responsible r = (Responsible) new Responsible().find(responsible_id).get();
+				
+				if(c.delete()) {
+					response.setStatus(200);
+					request.getSession().setAttribute("children", r.children());
+					request.getSession().setAttribute("success", "Criança removida com sucesso!");
+				} else {
+					response.setStatus(500);
+					response.getWriter().println("Algo deu errado durante a remoção da criança. Tente novamente mais tarde");
+				}
+			} catch (ClassNotFoundException | SQLException e) {
+				System.out.println(e.getMessage());
 
+				response.setStatus(500);
+				response.getWriter().println("Algo deu errado durante a remoção da criança. Tente novamente mais tarde");
+			}
+		}
+	}
 }

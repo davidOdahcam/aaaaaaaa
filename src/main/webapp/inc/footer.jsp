@@ -35,6 +35,7 @@
 	<script src="<%= request.getContextPath() %>/public/assets/js/popper.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/bootstrap.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/editar-perfil.js"></script>
+	<script src="<%= request.getContextPath() %>/public/assets/js/profile.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/script.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/toastr.min.js"></script>
 	<script src="<%= request.getContextPath() %>/public/assets/js/consulta.js"></script>
@@ -51,6 +52,7 @@
         if("consulta.jsp".equals(pageName)) {
 	        out.println("<script src=\"" + request.getContextPath() + "/public/assets/js/consulta.js\"></script>");
         }
+        
     %>
 
 	<script>

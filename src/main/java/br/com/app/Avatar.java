@@ -21,7 +21,9 @@ import jakarta.servlet.http.HttpServletResponse;
 public class Avatar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	//private String FileLocation = "C:\\Users\\mathe\\Google Drive\\Programming\\Java\\eclipse-workshop\\TrabalhoWeb\\src\\main\\webapp\\uploads";
-	private String FileLocation = "D:\\workspace-eclipse\\TrabalhoWeb\\src\\main\\webapp\\uploads";
+	//private String FileLocation = "D:\\workspace-eclipse\\TrabalhoWeb\\src\\main\\webapp\\uploads";
+	private String FileLocation = "D:\\Dev\\Web2\\Web2\\src\\main\\webapp\\uploads";
+	
     /**
      * Default constructor. 
      */
@@ -38,7 +40,7 @@ public class Avatar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		System.out.println(request.getParameter("id"));
         System.out.println(request.getContextPath());
         int id = 1; //SUBSTITUIR PELO CHILD_ID
 		

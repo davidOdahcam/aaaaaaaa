@@ -222,19 +222,19 @@ public class Model {
 	public boolean delete() {
 		try {
 			if(this.query.isEmpty()) {
-				throw new SQLException("Imposs�vel realizar essa op��o neste momento.");
+				throw new SQLException("Impossível realizar essa operação neste momento.");
 			}
 			
 			this.get();
 			this.preparedQuery = this.conn.prepareStatement(this.query, ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
 			this.resultSet = this.preparedQuery.executeQuery();
-
+			
 			while(this.resultSet.next()) {
 				this.resultSet.deleteRow();
 			}
 		} catch(SQLException e) {
-			
 			System.out.println(e.getMessage());
+			return false;
 		}
 		
 		return true;
