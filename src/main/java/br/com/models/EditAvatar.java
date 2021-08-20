@@ -9,7 +9,7 @@ import br.com.DAO.Model;
 
 public class EditAvatar extends Model {
 	public static final String singular = "avatar";
-	public static final String tableName = "avatar";
+	public static final String tableName = "children";
 	private Connection conn = DatabaseConnection.initializeDatabase();
 	
 	public int id;
@@ -32,7 +32,7 @@ public class EditAvatar extends Model {
 	
 	}
 	
-	public void saveAvatar(String child_id, String path) throws SQLException {
+	public void saveAvatar(String child_id, String contextPath) throws SQLException {
 		
 		try {
 		
