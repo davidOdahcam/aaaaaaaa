@@ -20,9 +20,8 @@ import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/avatar")
 public class Avatar extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//private String FileLocation = "C:\\Users\\mathe\\Google Drive\\Programming\\Java\\eclipse-workshop\\TrabalhoWeb\\src\\main\\webapp\\uploads";
-	//private String FileLocation = "D:\\workspace-eclipse\\TrabalhoWeb\\src\\main\\webapp\\uploads";
-	private String FileLocation = "D:\\Dev\\Web2\\Web2\\src\\main\\webapp\\uploads";
+	private String FileLocation = "C:\\Users\\mathe\\Google Drive\\Programming\\Java\\eclipse-workshop\\TrabalhoWeb2\\src\\main\\webapp\\public\\assets\\uploads"; //ALTERE SOMENTE ESTA LINHA!!!
+	private String shortPath = "/TrabalhoWeb2/public/assets/uploads"; //APENAS VERIFIQUE O NOME DO PROJETO E ALTERE, SE NECESSARIO	
 	
     /**
      * Default constructor. 
@@ -40,9 +39,9 @@ public class Avatar extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println(request.getParameter("id"));
+
         System.out.println(request.getContextPath());
-        int id = 1; //SUBSTITUIR PELO CHILD_ID
+        String child_id = request.getParameter("id");
 		
 		int length = Integer.parseInt(request.getParameter("length"));
 		
@@ -60,14 +59,16 @@ public class Avatar extends HttpServlet {
 	        String[] strings = blob.split(",");
 
 	        byte[] data = DatatypeConverter.parseBase64Binary(strings[1]);
-	        String path = FileLocation + "/avatar_" + id + ".png";
+	        String path = FileLocation + "/avatar_" + child_id + ".png";
 	        
 	        File file = new File(path);
 	        
 	        try (OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(file))) {
 	            outputStream.write(data);
 	            EditAvatar av = new EditAvatar();
-	            av.saveAvatar(id, path);
+	            
+				String contextPath = shortPath + "/avatar_" + child_id + ".png";
+	            av.saveAvatar(child_id, contextPath);
 	            
 	        } catch (IOException e) {
 	        	

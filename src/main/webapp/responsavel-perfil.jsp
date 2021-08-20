@@ -111,8 +111,8 @@
 						                        <span>&times;</span>
 						                    </button>
 	                                        <div class="d-flex flex-column align-items-center text-center">
-	                                   			<% if(children.get(i).get("path_avatar") != null) { %>
-		                                            <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin"
+                                                <% if(children.get(i).get("path") != null) { %>
+		                                            <img src="<%= children.get(i).get("path") %>" alt="Admin"
 		                                                class="rounded-circle" width="150">
 	                                   			<% } else if(children.get(i).get("sex") != null && children.get(i).get("sex").equals("M")) { %>
 	                                                <img src="<%= request.getContextPath() %>/public/assets/images/boy.png" alt="Admin"
@@ -189,7 +189,7 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">Número</label>
+                                    <label for="number">Nï¿½mero</label>
                                     <input type="text" name="number" id="number" value="<%= responsible.get("number") %>" class="form-control" placeholder="Digite seu Nï¿½mero" required/>
                                     <small class="text-danger"></small>
                                 </div>
@@ -273,7 +273,7 @@
                         </div>
                         <div class="modal-body">
                             <p>Deseja realmente remover <strong><%= children.get(i).get("name")%></strong> da sua lista de filhos cadastrados?</p>
-                            <p>Esta operação não tem volta, mas caso queira é sempre possível realizar novamente o cadastro do seu filho!</p>
+                            <p>Esta operaï¿½ï¿½o nï¿½o tem volta, mas caso queira ï¿½ sempre possï¿½vel realizar novamente o cadastro do seu filho!</p>
                         </div>
                         <div class="modal-footer">   
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>

@@ -240,15 +240,11 @@ submit.addEventListener('click', function () {
 					length++;
 				}
 				
-				dataQuery += `length=${length}`;
+				dataQuery += `${location.href.split("?")[1]}&length=${length}`;
 				//console.log(dataQuery);
 			   	$.ajax({
 	                url: '/TrabalhoWeb2/avatar',
 	                method: 'POST',
-	                /*data: {
-	                	blob: e.target.result,
-	                	teste: "10",
-	                },*/
 	                data: dataQuery,
 	                cache: false,
 	                processData: false

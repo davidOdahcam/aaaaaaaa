@@ -32,15 +32,13 @@ public class EditAvatar extends Model {
 	
 	}
 	
-	public void saveAvatar(int child_id, String path) throws SQLException {
+	public void saveAvatar(String child_id, String path) throws SQLException {
 		
 		try {
-			
 		
-		PreparedStatement st = conn.prepareStatement("INSERT INTO " + this.tableName + " (avatar_id, path) VALUES(?, ?)"); //MODIFICAR PARA O CHILD_ID
+		PreparedStatement st = conn.prepareStatement("UPDATE " + this.tableName + " SET path = ? WHERE id =" + child_id); //MODIFICAR PARA O CHILD_ID
 		
-		st.setInt(1, child_id);
-		st.setString(2, path);
+		st.setString(1, contextPath);
 		
 		st.executeUpdate();
 		
