@@ -4,7 +4,7 @@
 
 <div class="container">
     <div class="content">
-        <h3 id="title">Pergunta número 1</h3>
+        <h3 id="title">Pergunta nÃºmero 1</h3>
         <div id="container-consulta" class="row">
             <div onclick="imgSelected(1)" class="col-12 col-md-5 border mt-3 ml-md-5 img-container">
 

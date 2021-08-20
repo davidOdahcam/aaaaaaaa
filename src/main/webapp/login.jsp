@@ -6,7 +6,7 @@
     <div class="content">
         <form action="./login" method="POST" class="form">
             <header class="content-header">
-                <h2 class="content-header-title">Formul·rio de login</h2>
+                <h2 class="content-header-title">Formul√°rio de login</h2>
             </header>
             
             <div class="form-group">
@@ -24,7 +24,7 @@
             
             <hr>
             
-            <small class="d-block pt-2 text-center">N„o possui cadastro? <a href="#" data-toggle="modal" data-target="#chooseProfileType">Crie uma conta</a></small>
+            <small class="d-block pt-2 text-center">N√£o possui cadastro? <a href="#" data-toggle="modal" data-target="#chooseProfileType">Crie uma conta</a></small>
         </form>
     </div>
     
@@ -50,7 +50,7 @@
 					        <div class="col-md-5 ml-auto mr-md-5">
 					            <a href="./cadastrar?responsavel" class="card card-register">
 					                <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle">
-					                <h3 class="title">Respons·vel</h3>
+					                <h3 class="title">Respons√°vel</h3>
 					            </a>
 					        </div>
 					    </div>

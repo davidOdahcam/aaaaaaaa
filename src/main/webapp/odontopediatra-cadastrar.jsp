@@ -60,7 +60,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="number">Número</label>
+                    <label for="number">NÃºmero</label>
                     <input type="text" name="number" id="number" class="form-control" value="" placeholder="Digite o nÃºmero de sua casa" aria-describedby="small-number" required/>
                     <small class="text text-danger"></small>
                 </div>
@@ -105,7 +105,7 @@
             
             <hr>
             
-            <small class="d-block pt-2 text-center">Já possui cadastro? <a href="./login">Entre com uma conta</a></small>
+            <small class="d-block pt-2 text-center">JÃ¡ possui cadastro? <a href="./login">Entre com uma conta</a></small>
         </form>
     </div>
 </div>

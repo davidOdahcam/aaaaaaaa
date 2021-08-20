@@ -6,7 +6,7 @@
     <div class="content">
         <form action="./crianca" method="POST" id="form" class="form">
             <header class="content-header">
-                <h2 class="content-header-title">Cadastro da crian�a</h2>
+                <h2 class="content-header-title">Cadastro da criança</h2>
 				<input type="hidden" name="type" value="crianca" />
             </header>
 			

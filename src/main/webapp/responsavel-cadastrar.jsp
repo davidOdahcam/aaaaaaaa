@@ -6,7 +6,7 @@
     <div class="content">
         <form action="./cadastrar" method="POST" id="form" class="form">
             <header class="content-header">
-                <h2 class="content-header-title">Cadastro de respons�vel</h2>
+                <h2 class="content-header-title">Cadastro de responsável</h2>
                 <input type="hidden" name="type" value="responsavel" />
             </header>
 
@@ -52,7 +52,7 @@
                 </div>
                 
                 <div class="form-group col-md-6">
-                    <label for="profession">Profiss�o</label>
+                    <label for="profession">Profissão</label>
                     <input type="text" name="profession" id="profession" class="form-control" placeholder="Digite sua profiss�o" required />
                     <small class="text text-danger"></small>
                 </div>
@@ -70,7 +70,7 @@
                 </div>
 
                 <div class="form-group col-md-6">
-                    <label for="number">N�mero</label>
+                    <label for="number">Número</label>
                     <input type="text" name="number" id="number" class="form-control" placeholder="Digite o n�mero de sua casa" required />
                     <small class="text text-danger"></small>
                 </div>
@@ -98,7 +98,7 @@
             
             <hr>
             
-            <small class="d-block pt-2 text-center">J� possui cadastro? <a href="./login">Entre com uma conta</a></small>
+            <small class="d-block pt-2 text-center">Já possui cadastro? <a href="./login">Entre com uma conta</a></small>
         </form>
     </div>
 </div>

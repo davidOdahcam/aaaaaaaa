@@ -18,7 +18,7 @@
                                 <h4><%= ((java.util.Map<String, String>) request.getSession().getAttribute("pediatric")).get("name") %></h4>
                                 <p class="text-secondary mb-3">Odontologista</p>
                                 <button class="btn btn-primary">Cadastrar Paciente</button>
-                                <button class="btn btn-outline-primary">Gerar Relat�rio</button>
+                                <button class="btn btn-outline-primary">Gerar Relatório</button>
                                 <div class="input-group mt-3">
                                     <input type="text" class="form-control" placeholder="Buscar paciente" />
                                     <div class="input-group-append">
@@ -144,7 +144,7 @@
                              <%if(state.equals("M")){%>
                                 <button class="btn btn-success" value="consultar">Consultar</button>
                                 <button class="btn btn-danger ml-2 consulta_op" value="desmarcar">Desmarcar</button>
-                             <%}if(state.equals("X"){ %>
+                             <%}if(state.equals("X")){ %>
                              	<button class="btn btn-success consulta_op" value="marcar">Marcar Consulta</button>
                              <%} %>
                             </div>
@@ -222,7 +222,7 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">N�mero</label>
+                                    <label for="number">Número</label>
                                     <input type="text" name="number" id="number" class="form-control" placeholder="Digite seu Número" required/>
                                     <small class="text-danger"></small>
                                 </div>

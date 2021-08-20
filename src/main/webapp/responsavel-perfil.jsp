@@ -16,7 +16,7 @@
                             <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
                                 <h4><%= responsible.get("name") %></h4>
-                                <p class="text-secondary mb-3">Respons�vel</p>
+                                <p class="text-secondary mb-3">Responsável</p>
                                 <form action="crianca-cadastrar.jsp" method="get">
                                 	<a href="./crianca" class="btn btn-primary">Cadastrar Filho(a)</a>
                                 </form>
@@ -62,7 +62,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Profiss�o:</h6>
+                                <h6 class="mb-0">Profissão:</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= responsible.get("profession") %></span>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="row pt-3 pb-1 border-bottom">
                             <div class="col-sm-3">
-                                <h6 class="mb-0">Endere�o</h6>
+                                <h6 class="mb-0">Endereço</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
                                 <span><%= responsible.get("neighborhood") %></span>,
@@ -189,7 +189,7 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">N�mero</label>
+                                    <label for="number">Número</label>
                                     <input type="text" name="number" id="number" value="<%= responsible.get("number") %>" class="form-control" placeholder="Digite seu N�mero" required/>
                                     <small class="text-danger"></small>
                                 </div>
@@ -273,7 +273,7 @@
                         </div>
                         <div class="modal-body">
                             <p>Deseja realmente remover <strong><%= children.get(i).get("name")%></strong> da sua lista de filhos cadastrados?</p>
-                            <p>Esta opera��o n�o tem volta, mas caso queira � sempre poss�vel realizar novamente o cadastro do seu filho!</p>
+                            <p>Esta operação não tem volta, mas, caso queira, é possível realizar novamente o cadastro do seu filho!</p>
                         </div>
                         <div class="modal-footer">   
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
