@@ -63,14 +63,14 @@ public class Appointment {
 	}
 	
 	public boolean cancelar() throws SQLException {
-		this.query = "update table "+this.tableName+" set state='X' where id="+this.id;
+		this.query = "update "+this.tableName+" set state='X' where id="+this.id;
 		this.preparedQuery = this.conn.prepareStatement(this.query);
 		this.preparedQuery.execute();
 		return true;
 	}
 	
 	public boolean result() throws SQLException {
-		this.query = "update table "+this.tableName+" set state='C', emotions="+this.emotions+", emotions_result="+this.emotions_result+" where id="+this.id;
+		this.query = "update "+this.tableName+" set state='C', emotions="+this.emotions+", emotions_result="+this.emotions_result+" where id="+this.id;
 		this.preparedQuery = this.conn.prepareStatement(this.query);
 		this.preparedQuery.execute();
 		return true;
@@ -126,7 +126,7 @@ public class Appointment {
 				try {
 					String nome = new Child().retrieve_kids(child_id);
 					String hora = hour_sql.toString().split(":")[0].concat(":00");
-					valores.replace("id", consulta_id);
+					valores.replace("consulta_id", consulta_id);
 					valores.replace("nome" , nome);
 					valores.replace("hora", hora);
 					valores.replace("state", state);

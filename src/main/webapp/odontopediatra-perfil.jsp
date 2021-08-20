@@ -133,7 +133,9 @@
                      		<%String state = valores.get("state");%>
                         <div class="row align-items-center py-2 border-bottom">
                         <% if(horario.equals(hora)) { %>
-                            <div class="col-md-2 text-center">
+                            
+                             <%if(state.equals("M")){%>
+                             <div class="col-md-2 text-center">
                                 <span><% out.print(horario);%></span>
                             
                             </div>
@@ -141,13 +143,24 @@
                                 <a href=""><%out.print(name); %></a>
                             </div>
                             <div class="col-md-4 d-flex justify-content-start">
-                             <%if(state.equals("M")){%>
-                                <button class="btn btn-success" value="consultar">Consultar</button>
+                            <form action="consulta.jsp" method="GET">
+                                <button class="btn btn-success" value="consultar" >Consultar</button>
+                            </form>
                                 <button class="btn btn-danger ml-2 consulta_op" value="desmarcar">Desmarcar</button>
-                             <%}if(state.equals("X")){ %>
-                             	<button class="btn btn-success consulta_op" value="marcar">Marcar Consulta</button>
-                             <%} %>
                             </div>
+                             <%}if(state.equals("X")){ %>
+                                <div class="col-md-2 text-center">
+                                <span><% out.print(horario);%></span>
+                            
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <a href="">Horário Vago</a>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-start">
+                             	<button class="btn btn-success consulta_op" value="marcar">Marcar Consulta</button>
+                              </div>
+                             <%} %>
+                            
                            <%request.getSession().setAttribute("consulta_id", consulta_id); %>
                            <%} 
                            else{%>

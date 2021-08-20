@@ -47,7 +47,7 @@ public class AppointmentServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1° - Pegar o resultado da consulta
 		String op = request.getParameter("op");
-		if(op=="desmarcar") {
+		if(op.equals("desmarcar")) {
 			String consulta_id = request.getSession().getAttribute("consulta_id").toString();
 			Appointment consulta = new Appointment();
 			consulta.id = Integer.parseInt(consulta_id);
@@ -58,7 +58,7 @@ public class AppointmentServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(op=="marcar") {
+		else if(op.equals("marcar")) {
 			String day = request.getSession().getAttribute("day").toString();
 			String horario = request.getSession().getAttribute("horario").toString();
 			String pediatric_dentist_id = request.getSession().getAttribute("pediatric_dentisti_id").toString();
@@ -75,7 +75,7 @@ public class AppointmentServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-		}else if(op=="consultar") {
+		}else if(op.equals("consultar")) {
 			Enumeration<String> consulta_q = request.getParameterNames();
 			ArrayList<String> pontos = new ArrayList<String>();
 			while(true) {
