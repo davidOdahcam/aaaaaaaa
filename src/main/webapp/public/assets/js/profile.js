@@ -2,14 +2,15 @@ $('.child-card').hover(
 	function () { // In
 		const id = this.dataset.id;
 
-		$(this).css("background-color", "rgb(245, 245, 245)");
+		// $(this).css("background-color", "rgb(245, 245, 245)");
 		$(`#delete-child-${id}`).show();
 	},
 	
 	function () { // Out
 		const id = this.dataset.id;
 		
-		$(this).css("background-color", "white");
+		// $(this).css("background-color", "white");
+		// $(this).css("transition", "all 300 ease-in-out");
 		$(`#delete-child-${id}`).hide();
 	}
 )

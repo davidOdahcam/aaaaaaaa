@@ -8,11 +8,9 @@
                <h2 class="content-header-title">Sobre o trabalho</h2>
            </header>
                  
-           <p>O trabalho é referente à materia WEB 2 do curso de Sistemas de Informação da UFRRJ</p>
-           <p>Para acessar a aplicação é necessário realizar <a href="./login">login</a>!</p>
-           <p>Não possui uma conta? <a href="#" data-toggle="modal" data-target="#chooseProfileType">Crie uma agora</a>!</p>
-           
-           <button class="btn btn-color-3 btn-block btn-lg mt-4">Entrar</button>
+           <p>O trabalho ï¿½ referente ï¿½ materia WEB 2 do curso de Sistemas de Informaï¿½ï¿½o da UFRRJ</p>
+           <p>Para acessar a aplicaï¿½ï¿½o ï¿½ necessï¿½rio realizar <a href="./login">login</a>!</p>
+           <p>Nï¿½o possui uma conta? <a href="#" data-toggle="modal" data-target="#chooseProfileType">Crie uma agora</a>!</p>
         	
     </div>
     
@@ -38,7 +36,7 @@
 					        <div class="col-md-5 ml-auto mr-md-5">
 					            <a href="./cadastrar?responsavel" class="card card-register">
 					                <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin" class="rounded-circle">
-					                <h3 class="title">Responsável</h3>
+					                <h3 class="title">Responsï¿½vel</h3>
 					            </a>
 					        </div>
 					    </div>

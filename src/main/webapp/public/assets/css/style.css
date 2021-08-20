@@ -10817,4 +10817,13 @@ body {
   display: none;
 }
 
+.child-card {
+  background-color: #ffffff;
+  transition: all 200ms ease-in-out;
+}
+
+.child-card:hover {
+  background-color: rgb(245, 245, 245);
+}
+
 /*# sourceMappingURL=style.css.map */
