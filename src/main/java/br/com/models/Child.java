@@ -2,7 +2,9 @@ package br.com.models;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -79,9 +81,20 @@ public Child create(Map<String, String> inserts) throws SQLException {
 	return this;
 }
 
-public String retrieve_kids(String responsible_id) {
-	
-	
-	return "";
+public String retrieve_kids(String child_id) {
+	this.query = "Select name from children where id = "+ child_id;
+	try {
+		Statement stmt = this.conn.createStatement();
+		ResultSet res = stmt.executeQuery(this.query);
+		String nome = "";
+		while(res.next()) {
+		 nome = res.getString("name");
+		}
+		return nome;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return null;
 }
 }

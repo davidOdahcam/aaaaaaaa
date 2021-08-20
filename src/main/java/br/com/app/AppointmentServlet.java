@@ -36,7 +36,8 @@ public class AppointmentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		String date = request.getParameter("date");
+		request.getSession().setAttribute("dia_da_consulta", date);
 }		
 	
 
@@ -45,37 +46,56 @@ public class AppointmentServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//1° - Pegar o resultado da consulta
-		Enumeration<String> consulta = request.getParameterNames();
-		ArrayList<String> pontos = new ArrayList<String>();
-		while(true) {
+		String op = request.getParameter("op");
+		if(op=="desmarcar") {
+			String consulta_id = request.getSession().getAttribute("consulta_id").toString();
+			Appointment consulta = new Appointment();
+			consulta.id = Integer.parseInt(consulta_id);
 			try {
-				String next_el = consulta.nextElement();
-				pontos.add(request.getParameter(next_el));
-			}catch(NoSuchElementException e) {
-				break;
+				consulta.cancelar();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
-		
-		//2° - Pegar os dados da sessão
-		//Essa declaração manual é provisória.
-		String child_id = request.getSession().getAttribute("child_id").toString();
-		String pediatric_dentist_id = request.getSession().getAttribute("pedriatic_dentist_id").toString();
-		String payment_method = request.getSession().getAttribute("payment_method").toString();
-		String date = request.getSession().getAttribute("date").toString();
-		ArrayList<String> emotions = pontos;
-		
-		//3° - Criar classe appointment e salvá-la no BD.
-		try {
-			Appointment new_appointment = new Appointment("appointment", child_id, pediatric_dentist_id
-					, payment_method, date, emotions.toString());
-			new_appointment.calculateEmotion(emotions);
-			new_appointment.create();
-;		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		else if(op=="marcar") {
+			String day = request.getSession().getAttribute("day").toString();
+			String horario = request.getSession().getAttribute("horario").toString();
+			String pediatric_dentist_id = request.getSession().getAttribute("pediatric_dentisti_id").toString();
+			String child_id = request.getSession().getAttribute("child_id").toString();
+			Appointment consulta;
+			try {
+				consulta = new Appointment(child_id, pediatric_dentist_id, day, horario, "M");
+				consulta.create();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}else if(op=="consultar") {
+			Enumeration<String> consulta_q = request.getParameterNames();
+			ArrayList<String> pontos = new ArrayList<String>();
+			while(true) {
+				try {
+					String next_el = consulta_q.nextElement();
+					pontos.add(request.getParameter(next_el));
+				}catch(NoSuchElementException e) {
+					break;
+				}
+			}
+			String consulta_id = request.getSession().getAttribute("consulta_id").toString();
+			try {
+				Appointment consulta = new Appointment();
+				consulta.calculateEmotion(pontos);
+				consulta.id = Integer.parseInt(consulta_id);
+				consulta.result();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		
