@@ -103,15 +103,13 @@
                     <div class="card-body">
                         <h4 class="text-center">Filhos Cadastrados</h4>
                         <div class="row">
-                        <!-- 
-                        	Iterar pelo ArrayList
-                        	pegar o ID da crianï¿½a 
-                        	pegar o nome da crianï¿½a
-                        -->
                             <% for(int i = 0; i < children.size(); i++) { %>
                             	<div class="col-md-4 mb-3">
-	                                <div class="card">
-	                                    <div class="card-body">
+	                                <div data-id="<%= children.get(i).get("id") %>" class="card child-card">
+	                                    <div style="position: relative" class="card-body">
+	                                    	<button id="delete-child-<%= children.get(i).get("id") %>" type="button" class="close text-danger delete-child" data-toggle="modal" data-target="#delete-child-<%= children.get(i).get("id") %>-modal" style="display: none; position: absolute">
+						                        <span>&times;</span>
+						                    </button>
 	                                        <div class="d-flex flex-column align-items-center text-center">
 	                                   			<% if(children.get(i).get("path_avatar") != null) { %>
 		                                            <img src="<%= request.getContextPath() %>/public/assets/images/responsavel.png" alt="Admin"
@@ -126,7 +124,6 @@
 	                                            <div class="mt-3">
 	                                                <h4><%= children.get(i).get("name") %></h4>
 	                                         		<p class="text-secondary mb-3"><%= children.get(i).get("sex") %></p>
-	                                                <!-- <p class="text-secondary mb-3">Responsï¿½vel</p> -->
 	                                                <button id="<%= children.get(i).get("id") %>" class="btn btn-primary" data-toggle="modal" data-target="#editChildrenId-<%= children.get(i).get("id") %>">Perfil</button>
 	                                                <a href="./avatar?id=<%= children.get(i).get("id") %>" class="btn btn-primary">Avatar</a> 
 	                                            </div>
@@ -192,7 +189,7 @@
                                     <small class="text-danger"></small>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="number">Nï¿½mero</label>
+                                    <label for="number">Número</label>
                                     <input type="text" name="number" id="number" value="<%= responsible.get("number") %>" class="form-control" placeholder="Digite seu Nï¿½mero" required/>
                                     <small class="text-danger"></small>
                                 </div>
@@ -260,6 +257,27 @@
                         <div class="modal-footer">   
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
                             <button type="button" data-id="<%= children.get(i).get("id") %>" form="ChildrenFormId-<%= children.get(i).get("id") %>" class="btn btn-success edit-child">Atualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal fade" id="delete-child-<%= children.get(i).get("id")%>-modal" tabindex="-1" role="dialog" aria-labelledby="delete-child-<%= children.get(i).get("id")%>-modal-Label" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger">
+                            <h2 class="text-white mb-0">Remover filho(a)?</h2>
+                            <button type="button" class="close text-dark" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Deseja realmente remover <strong><%= children.get(i).get("name")%></strong> da sua lista de filhos cadastrados?</p>
+                            <p>Esta operação não tem volta, mas caso queira é sempre possível realizar novamente o cadastro do seu filho!</p>
+                        </div>
+                        <div class="modal-footer">   
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                            <button type="button" data-id="<%= children.get(i).get("id") %>" class="btn btn-success delete-child-btn">Remover</button>
                         </div>
                     </div>
                 </div>
